@@ -1,0 +1,258 @@
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ExternalLink } from "lucide-react";
+
+const TokenomicsSection = () => {
+  return (
+    // <section className="py-28 relative border-b border-t bg-gradient-to-b from-black via-[#2A2104] to-black">
+
+    <section id="tokenomics" className="py-24 relative overflow-hidden">
+      {/* Soft gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-900/20 via-slate-800/10 to-black/30 pointer-events-none"></div>
+
+      <div className="container mx-auto px-4 relative">
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
+            <span className="gradient-text-primary">TROY:</span> Transparent &
+            Fair Distribution
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            A fair ecosystem built for long-term community trust & real value.
+          </p>
+        </div>
+
+        <Card className="relative border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_0_60px_-10px_rgba(0,255,255,0.25)] hover:shadow-[0_0_80px_-10px_rgba(0,255,255,0.35)] transition-all p-10 max-w-5xl mx-auto rounded-3xl">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            {/* Neon Donut Chart */}
+            <div className="relative flex justify-center">
+              <svg viewBox="0 0 400 400" className="w-full max-w-xs">
+                <circle
+                  cx="200"
+                  cy="200"
+                  r="130"
+                  fill="none"
+                  stroke="hsl(263 70% 50%)"
+                  strokeWidth="55"
+                  strokeDasharray="301.59 753.98"
+                  transform="rotate(-90 200 200)"
+                  className="drop-shadow-[0_0_30px_hsl(263_80%_60%/0.7)]"
+                />
+                <circle
+                  cx="200"
+                  cy="200"
+                  r="130"
+                  fill="none"
+                  stroke="hsl(189 94% 43%)"
+                  strokeWidth="55"
+                  strokeDasharray="150.79 904.77"
+                  strokeDashoffset="-301.59"
+                  transform="rotate(-90 200 200)"
+                  className="drop-shadow-[0_0_30px_hsl(189_90%_50%/0.7)]"
+                />
+                <circle
+                  cx="200"
+                  cy="200"
+                  r="130"
+                  fill="none"
+                  stroke="hsl(45 93% 47%)"
+                  strokeWidth="55"
+                  strokeDasharray="301.59 753.98"
+                  strokeDashoffset="-452.38"
+                  transform="rotate(-90 200 200)"
+                  className="drop-shadow-[0_0_30px_hsl(45_100%_50%/0.7)]"
+                />
+
+                <text
+                  x="200"
+                  y="185"
+                  textAnchor="middle"
+                  className="text-2xl font-bold fill-white"
+                >
+                  888,888,888
+                </text>
+                <text
+                  x="200"
+                  y="215"
+                  textAnchor="middle"
+                  className="text-sm fill-muted-foreground"
+                >
+                  Total Supply
+                </text>
+              </svg>
+            </div>
+
+            {/* Tokenomics Breakdown */}
+            <div className="space-y-8">
+              <div className="flex items-start gap-4">
+                <div className="w-7 h-7 rounded-full bg-gradient-primary glow-primary shrink-0 mt-1" />
+                <div>
+                  <h4 className="text-xl font-semibold">40% — Public Sale</h4>
+                  <p className="text-muted-foreground">
+                    Distributed to early believers through multi-stage presale.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="w-7 h-7 rounded-full bg-gradient-accent shrink-0 mt-1" />
+                <div>
+                  <h4 className="text-xl font-semibold">
+                    20% — Liquidity Pool
+                  </h4>
+                  <p className="text-muted-foreground">
+                    Locked DEX liquidity to ensure price stability & fair
+                    trading.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="w-7 h-7 rounded-full bg-gradient-gold glow-gold shrink-0 mt-1" />
+                <div>
+                  <h4 className="text-xl font-semibold">
+                    40% — DAO-Controlled Treasury
+                  </h4>
+                  <p className="text-muted-foreground">
+                    Locked 5 years — unlocked only by Midas governance vote.
+                  </p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-5 pt-4">
+                <Button
+                  variant="outline-light"
+                  className="w-full flex items-center gap-2"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  Contract
+                </Button>
+                <Button
+                  variant="outline-light"
+                  className="w-full flex items-center gap-2"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  Lock Proof
+                </Button>
+              </div>
+            </div>
+          </div>
+        </Card>
+      </div>
+    </section>
+  );
+};
+
+export default TokenomicsSection;
+
+// import { Card } from "@/components/ui/card";
+// import { Button } from "@/components/ui/button";
+// import { ExternalLink } from "lucide-react";
+
+// const TokenomicsSection = () => {
+//   return (
+//     <section id="tokenomics" className="py-20 bg-muted/20">
+//       <div className="container mx-auto px-4">
+//         <div className="text-center mb-16">
+//           <h2 className="text-4xl md:text-5xl font-bold mb-4">
+//             <span className="gradient-text-primary">TROY:</span> Transparent & Fair Distribution
+//           </h2>
+//         </div>
+
+//         <Card className="glass-card p-8 max-w-5xl mx-auto">
+//           <div className="grid md:grid-cols-2 gap-12 items-center">
+//             <div className="relative">
+//               <svg viewBox="0 0 400 400" className="w-full max-w-md mx-auto">
+//                 <circle
+//                   cx="200"
+//                   cy="200"
+//                   r="120"
+//                   fill="none"
+//                   stroke="hsl(263 70% 50%)"
+//                   strokeWidth="60"
+//                   strokeDasharray="301.59 753.98"
+//                   transform="rotate(-90 200 200)"
+//                   className="drop-shadow-[0_0_20px_hsl(263_70%_50%)]"
+//                 />
+//                 <circle
+//                   cx="200"
+//                   cy="200"
+//                   r="120"
+//                   fill="none"
+//                   stroke="hsl(189 94% 43%)"
+//                   strokeWidth="60"
+//                   strokeDasharray="150.79 904.77"
+//                   strokeDashoffset="-301.59"
+//                   transform="rotate(-90 200 200)"
+//                   className="drop-shadow-[0_0_20px_hsl(189_94%_43%)]"
+//                 />
+//                 <circle
+//                   cx="200"
+//                   cy="200"
+//                   r="120"
+//                   fill="none"
+//                   stroke="hsl(45 93% 47%)"
+//                   strokeWidth="60"
+//                   strokeDasharray="301.59 753.98"
+//                   strokeDashoffset="-452.38"
+//                   transform="rotate(-90 200 200)"
+//                   className="drop-shadow-[0_0_20px_hsl(45_93%_47%)]"
+//                 />
+//                 <text x="200" y="190" textAnchor="middle" className="text-2xl font-bold fill-foreground">
+//                   888,888,888
+//                 </text>
+//                 <text x="200" y="220" textAnchor="middle" className="text-sm fill-muted-foreground">
+//                   Total Supply
+//                 </text>
+//               </svg>
+//             </div>
+
+//             <div className="space-y-6">
+//               <div className="flex items-start gap-4">
+//                 <div className="w-6 h-6 rounded-full bg-gradient-primary glow-primary flex-shrink-0 mt-1"></div>
+//                 <div>
+//                   <h4 className="text-xl font-bold mb-2">40% - Public Circulation</h4>
+//                   <p className="text-muted-foreground">
+//                     For our multi-stage presale. Fair distribution to early supporters.
+//                   </p>
+//                 </div>
+//               </div>
+
+//               <div className="flex items-start gap-4">
+//                 <div className="w-6 h-6 rounded-full bg-gradient-accent flex-shrink-0 mt-1"></div>
+//                 <div>
+//                   <h4 className="text-xl font-bold mb-2">20% - Exchange Liquidity</h4>
+//                   <p className="text-muted-foreground">
+//                     Locked on DEXs at launch for stable trading and price discovery.
+//                   </p>
+//                 </div>
+//               </div>
+
+//               <div className="flex items-start gap-4">
+//                 <div className="w-6 h-6 rounded-full bg-gradient-gold glow-gold flex-shrink-0 mt-1"></div>
+//                 <div>
+//                   <h4 className="text-xl font-bold mb-2">40% - Decentralized Treasury</h4>
+//                   <p className="text-muted-foreground">
+//                     Locked for 5 years, governed by Midas DAO. True community control.
+//                   </p>
+//                 </div>
+//               </div>
+
+//               <div className="flex gap-4 pt-4">
+//                 <Button variant="outline-light" className="flex-1">
+//                   <ExternalLink className="w-4 h-4" />
+//                   View TROY Contract
+//                 </Button>
+//                 <Button variant="outline-light" className="flex-1">
+//                   <ExternalLink className="w-4 h-4" />
+//                   View Lock Contract
+//                 </Button>
+//               </div>
+//             </div>
+//           </div>
+//         </Card>
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default TokenomicsSection;

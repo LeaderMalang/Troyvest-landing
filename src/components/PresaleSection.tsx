@@ -1,0 +1,264 @@
+"use client";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Card } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Progress } from "@/components/ui/progress";
+import { CreditCard } from "lucide-react";
+
+export default function PresaleSection() {
+  const [amount, setAmount] = useState("");
+  const troyAmount = amount ? (parseFloat(amount) / 0.005).toFixed(2) : "0";
+
+  return (
+    <section id="presale" className="py-28 relative">
+      {/* background deluxe grid + glow */}
+      <div className="absolute inset-0 opacity-[0.08] bg-[url('https://images.unsplash.com/photo-1616400619175-5beda3aabb86?auto=format&fit=crop&q=60')] bg-cover pointer-events-none"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black pointer-events-none"></div>
+
+      <div className="container mx-auto px-6 relative">
+        <div className="text-center mb-14">
+          <h2 className="text-5xl md:text-6xl font-extrabold leading-tight">
+            The{" "}
+            <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
+              TROY Presale
+            </span>{" "}
+            is Live
+          </h2>
+          <p className="text-lg text-gray-300 mt-3">
+            Secure your spot before launch. Earn boosted rewards.
+          </p>
+        </div>
+
+        <Card className="max-w-4xl mx-auto p-10 border border-yellow-500/30 bg-black/40 backdrop-blur-xl shadow-[0_0_25px_rgba(255,200,0,0.15)] rounded-2xl">
+          <Tabs defaultValue="stage1" className="w-full">
+            <TabsList className="grid grid-cols-3 mb-10 bg-transparent border border-yellow-500/30 rounded-xl overflow-hidden">
+              {["Stage 1", "Stage 2", "Stage 3"].map((t, i) => (
+                <TabsTrigger
+                  key={t}
+                  value={`stage${i + 1}`}
+                  disabled={i !== 0}
+                  className=" data-[state=active]:bg-gradient-to-r data-[state=active]:from-yellow-400 data-[state=active]:to-orange-500 data-[state=active]:text-black text-sm font-semibold py-3"
+                >
+                  {t}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+
+            <TabsContent value="stage1" className="space-y-8">
+              <div className="grid md:grid-cols-2 gap-10">
+                <div>
+                  <p className="text-sm text-gray-400">Price per Token</p>
+                  <p className="text-4xl font-bold bg-gradient-to-r from-yellow-300 to-orange-400 text-transparent bg-clip-text mt-1">
+                    $0.005
+                  </p>
+                </div>
+
+                <div>
+                  <p className="text-sm text-gray-400">
+                    Staking Reward (10 days)
+                  </p>
+                  <p className="text-4xl font-bold bg-gradient-to-r from-yellow-300 to-orange-400 text-transparent bg-clip-text mt-1">
+                    15% ROI
+                  </p>
+                </div>
+              </div>
+
+              {/* progress */}
+              <div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-gray-400">Progress</span>
+                  <span className="text-yellow-300 font-semibold">
+                    65% Sold
+                  </span>
+                </div>
+                <Progress
+                  value={65}
+                  className="h-3 mt-1 bg-white/10 [&>div]:bg-gradient-to-r [&>div]:from-yellow-400 [&>div]:to-orange-500"
+                />
+              </div>
+
+              {/* Buy box */}
+              <div className="space-y-6 p-7 rounded-xl bg-white/5 border border-yellow-500/20 backdrop-blur-sm">
+                {/* Token options */}
+                <div className="flex gap-3">
+                  {["BNB", "USDT", "USDC"].map((t) => (
+                    <Button
+                      key={t}
+                      variant="outline"
+                      size="sm"
+                      className="font-medium border-yellow-400/40 hover:bg-yellow-400/15 text-yellow-300"
+                    >
+                      {t}
+                    </Button>
+                  ))}
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-sm text-gray-400">
+                    Amount You Pay (BNB)
+                  </label>
+                  <Input
+                    type="number"
+                    placeholder="0.0"
+                    value={amount}
+                    onChange={(e) => setAmount(e.target.value)}
+                    className="text-lg bg-black/40 border-yellow-500/20 focus:border-yellow-400"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-sm text-gray-400">
+                    You Receive (TROY)
+                  </label>
+                  <div className="p-4 rounded-lg bg-black/60 border border-yellow-500/20">
+                    <p className="text-xl font-semibold text-yellow-300">
+                      {troyAmount} TROY
+                    </p>
+                  </div>
+                </div>
+
+                <Button className="w-full py-6 text-lg font-semibold bg-gradient-to-r from-yellow-400 via-orange-400 to-yellow-300 hover:shadow-[0_0_25px_rgba(255,199,0,0.45)]">
+                  Buy TROY Now
+                </Button>
+
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="w-full text-sm text-gray-300 hover:text-yellow-300"
+                >
+                  <CreditCard className="w-4 h-4" />
+                  Buy Crypto with Card
+                </Button>
+              </div>
+            </TabsContent>
+          </Tabs>
+        </Card>
+      </div>
+    </section>
+  );
+}
+
+// import { useState } from "react";
+// import { Button } from "@/components/ui/button";
+// import { Input } from "@/components/ui/input";
+// import { Card } from "@/components/ui/card";
+// import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+// import { Progress } from "@/components/ui/progress";
+// import { CreditCard } from "lucide-react";
+
+// const PresaleSection = () => {
+//   const [amount, setAmount] = useState("");
+//   const troyAmount = amount ? (parseFloat(amount) / 0.005).toFixed(2) : "0";
+
+//   return (
+//     <section id="presale" className="py-20 relative">
+//       <div className="container mx-auto px-4">
+//         <div className="text-center mb-12">
+//           <h2 className="text-4xl md:text-5xl font-bold mb-4">
+//             The <span className="gradient-text-primary">TROY Presale</span> is
+//             Live
+//           </h2>
+//           <p className="text-xl text-muted-foreground">
+//             Secure Your Stake. Early supporters get the best rewards.
+//           </p>
+//         </div>
+
+//         <Card className="glass-card p-8 max-w-4xl mx-auto">
+//           <Tabs defaultValue="stage1" className="w-full">
+//             <TabsList className="grid w-full grid-cols-3 mb-8">
+//               <TabsTrigger value="stage1">Stage 1</TabsTrigger>
+//               <TabsTrigger value="stage2" disabled>
+//                 Stage 2
+//               </TabsTrigger>
+//               <TabsTrigger value="stage3" disabled>
+//                 Stage 3
+//               </TabsTrigger>
+//             </TabsList>
+
+//             <TabsContent value="stage1" className="space-y-6">
+//               <div className="grid md:grid-cols-2 gap-6 mb-6">
+//                 <div className="space-y-2">
+//                   <p className="text-sm text-muted-foreground">
+//                     Price per Token
+//                   </p>
+//                   <p className="text-3xl font-bold gradient-text-primary">
+//                     $0.005
+//                   </p>
+//                 </div>
+//                 <div className="space-y-2">
+//                   <p className="text-sm text-muted-foreground">
+//                     Staking Reward (10 days)
+//                   </p>
+//                   <p className="text-3xl font-bold gradient-text-gold">
+//                     15% ROI
+//                   </p>
+//                 </div>
+//               </div>
+
+//               <div className="space-y-2">
+//                 <div className="flex justify-between text-sm">
+//                   <span className="text-muted-foreground">Progress</span>
+//                   <span className="text-foreground font-semibold">
+//                     65% Sold
+//                   </span>
+//                 </div>
+//                 <Progress value={65} className="h-3" />
+//               </div>
+
+//               <div className="space-y-4 p-6 rounded-lg bg-muted/20">
+//                 <div className="flex gap-3 mb-4">
+//                   <Button variant="outline-light" size="sm">
+//                     BNB
+//                   </Button>
+//                   <Button variant="outline-light" size="sm">
+//                     USDT
+//                   </Button>
+//                   <Button variant="outline-light" size="sm">
+//                     USDC
+//                   </Button>
+//                 </div>
+
+//                 <div className="space-y-2">
+//                   <label className="text-sm text-muted-foreground">
+//                     Amount You Pay (BNB)
+//                   </label>
+//                   <Input
+//                     type="number"
+//                     placeholder="0.0"
+//                     value={amount}
+//                     onChange={(e) => setAmount(e.target.value)}
+//                     className="text-lg"
+//                   />
+//                 </div>
+
+//                 <div className="space-y-2">
+//                   <label className="text-sm text-muted-foreground">
+//                     Amount You Receive (TROY)
+//                   </label>
+//                   <div className="p-3 rounded-md bg-background border border-border">
+//                     <p className="text-lg font-semibold gradient-text-primary">
+//                       {troyAmount} TROY
+//                     </p>
+//                   </div>
+//                 </div>
+
+//                 <Button variant="hero" size="lg" className="w-full text-lg">
+//                   Buy TROY Now
+//                 </Button>
+
+//                 <Button variant="ghost" size="sm" className="w-full">
+//                   <CreditCard className="w-4 h-4" />
+//                   Need Crypto? Buy with Card
+//                 </Button>
+//               </div>
+//             </TabsContent>
+//           </Tabs>
+//         </Card>
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default PresaleSection;

@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 220 16% 8%;
+    --foreground: 0 0% 98%;
+
+    --card: 220 14% 10%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 220 14% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 263 70% 55%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 45 95% 52%;
+    --secondary-foreground: 220 16% 8%;
+
+    --muted: 220 12% 16%;
+    --muted-foreground: 220 8% 60%;
+
+    --accent: 189 90% 48%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 12% 18%;
+    --input: 220 12% 16%;
+    --ring: 263 70% 55%;
+
+    --radius: 0.75rem;
+
+    /* Troyvest Brand Colors */
+    --troy-purple: 263 70% 55%;
+    --troy-purple-light: 263 70% 68%;
+    --troy-purple-dark: 263 70% 40%;
+    
+    --midas-gold: 45 95% 52%;
+    --midas-gold-light: 45 95% 65%;
+    --midas-gold-dark: 45 95% 38%;
+    
+    --troy-cyan: 189 90% 48%;
+    --troy-cyan-light: 189 90% 62%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(263 70% 55% / 0.15) 0%, hsl(220 16% 8%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(220 14% 12% / 0.8) 0%, hsl(220 14% 10% / 0.6) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(263 70% 55%) 0%, hsl(263 70% 68%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(45 95% 52%) 0%, hsl(45 95% 65%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(189 90% 48%) 0%, hsl(263 70% 55%) 100%);
+    
+    /* Shadows & Effects */
+    --shadow-glow: 0 0 50px hsl(263 70% 55% / 0.25);
+    --shadow-glow-gold: 0 0 50px hsl(45 95% 52% / 0.25);
+    --shadow-card: 0 4px 24px hsl(0 0% 0% / 0.5);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    background: linear-gradient(135deg, hsl(220 14% 12% / 0.8) 0%, hsl(220 14% 10% / 0.6) 100%);
+    backdrop-filter: blur(16px);
+    border: 1px solid hsl(220 12% 18%);
+  }
+  
+  .glow-primary {
+    box-shadow: 0 0 50px hsl(263 70% 55% / 0.25);
+  }
+  
+  .glow-gold {
+    box-shadow: 0 0 50px hsl(45 95% 52% / 0.25);
+  }
+  
+  .gradient-text-primary {
+    background: linear-gradient(135deg, hsl(263 70% 68%) 0%, hsl(189 90% 62%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .gradient-text-gold {
+    background: linear-gradient(135deg, hsl(45 95% 65%) 0%, hsl(45 95% 52%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
