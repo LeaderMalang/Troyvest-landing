@@ -45,33 +45,3 @@ const FinalCTASection = () => {
 };
 
 export default FinalCTASection;
-
-// import { Button } from "@/components/ui/button";
-// import { ArrowRight } from "lucide-react";
-
-// const FinalCTASection = () => {
-//   return (
-//     <section className="py-32 relative overflow-hidden">
-//       <div className="absolute inset-0 bg-gradient-hero opacity-30"></div>
-
-//       <div className="container mx-auto px-4 relative z-10 text-center">
-//         <h2 className="text-4xl md:text-6xl font-bold mb-6 max-w-4xl mx-auto leading-tight">
-//           Don't Just Invest in Crypto.{" "}
-//           <span className="gradient-text-primary">Invest in Accountability.</span>
-//         </h2>
-
-//         <p className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto">
-//           Be part of the first ecosystem where the community truly holds the power.
-//           Join the TROY presale and build the future of decentralized trust with us.
-//         </p>
-
-//         <Button variant="hero" size="lg" className="text-lg px-12 py-8 h-auto">
-//           Buy TROY Now
-//           <ArrowRight className="w-6 h-6" />
-//         </Button>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default FinalCTASection;
