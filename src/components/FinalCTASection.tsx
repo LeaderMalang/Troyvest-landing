@@ -21,12 +21,10 @@ const FinalCTASection = () => {
             Invest in Accountability.
           </span>
         </h2>
-
         <p className="text-lg md:text-2xl text-white/70 max-w-3xl mx-auto mb-12 leading-relaxed">
           The future of decentralized trust starts here. Join the TROY presale
           and become an early force behind a truly community-driven ecosystem.
         </p>
-
         <Button
           variant="hero"
           size="lg"
