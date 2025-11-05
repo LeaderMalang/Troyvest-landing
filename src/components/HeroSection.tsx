@@ -1,7 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import heroImage from "@/assets/hero-tokens.jpg";
+// import heroImage from "@/assets/hero-tokens.jpg";
 
 export default function HeroSection() {
   return (
@@ -17,14 +17,14 @@ export default function HeroSection() {
           <div className="space-y-8 animate-fade-in">
             <h1 className="text-3xl md:text-4xl font-extrabold leading-tight tracking-tight">
               Are You Investing in a Project
-              <span className="block bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent drop-shadow-lg">
+              <span className="block bg-gradient-to-r from-[#DDC770] to-[#DDC770] bg-clip-text text-transparent drop-shadow-lg">
                 Or in its Community?
               </span>
             </h1>
 
             <p className="text-lg text-gray-300 leading-relaxed max-w-lg">
               Troyvest is the world’s first DeFi ecosystem powered by a{" "}
-              <span className="text-yellow-300 font-semibold">
+              <span className="text-[#DDC770] font-semibold">
                 Decentralized Treasury
               </span>
               .
@@ -33,7 +33,7 @@ export default function HeroSection() {
               <span className="font-semibold text-white">Troy (TROY)</span>
               high-utility token
               <br />
-              <span className="font-semibold text-yellow-300">
+              <span className="font-semibold text-[#DDC770]">
                 Midas (MDS)
               </span>{" "}
               governance token owned by the community.
@@ -41,26 +41,26 @@ export default function HeroSection() {
 
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button className="text-base font-semibold flex items-center gap-2 bg-gradient-to-r from-yellow-400 via-orange-400 to-yellow-300 hover:shadow-[0_0_25px_rgba(255,199,0,0.45)]">
+              <Button className="text-base text-black font-semibold flex items-center gap-2 bg-gradient-to-r from-[#DDC770] via-[#DDC770] to-[#DDC770] hover:shadow-[0_0_25px_rgba(255,199,0,0.45)]">
                 Join the TROY Presale
                 <ArrowRight className="w-5 h-5" />
               </Button>
 
               <Button
                 variant="outline"
-                className="text-base border-yellow-400/40 text-yellow-300 hover:bg-yellow-400/10"
+                className="text-base border-yellow-400/40 text-[#DDC770] hover:bg-yellow-400/10"
               >
                 Learn About Midas DAO
               </Button>
             </div>
           </div>
 
-          {/* Hero Image */}
+          {/* Hero Image rounded-2xl shadow-xl ring-1 ring-yellow-500/30 */}
           <div className="relative group">
             <img
-              src={heroImage}
+              src={"/logo.png"}
               alt="TROY & MIDAS Tokens"
-              className="w-full rounded-2xl shadow-xl ring-1 ring-yellow-500/30 group-hover:scale-[1.02] transition-transform duration-500 animate-floating"
+              className="w-full  group-hover:scale-[1.02] transition-transform duration-500 animate-floating"
             />
 
             {/* Gold glow behind image */}

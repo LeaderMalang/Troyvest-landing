@@ -16,13 +16,13 @@ const TokenEcosystemSection = () => {
         <div className="text-center mb-20 space-y-4">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white">
             The{" "}
-            <span className="bg-gradient-to-r from-primary to-yellow-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary to-[#DDC770] bg-clip-text text-transparent">
               Two Token
             </span>{" "}
             Ecosystem
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-            Utility meets Governance Full community-powered economy.
+            Utility meets Governance Full community powered economy.
           </p>
         </div>
 
@@ -37,7 +37,8 @@ const TokenEcosystemSection = () => {
             <Card className="h-full flex flex-col bg-white/5 backdrop-blur-xl border-white/10 p-10 rounded-2xl hover:border-primary/50 transition-all shadow-[0_0_30px_-10px_rgba(0,255,255,0.2)]">
               <div className="flex items-center gap-5 mb-6">
                 <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-cyan-400 flex items-center justify-center shadow-lg shadow-cyan-500/30">
-                  <Coins className="w-10 h-10 text-white" />
+                  {/* <Coins className="w-10 h-10 text-white" /> */}
+                  <img src="troy-solo-logo .png" alt="logo" />
                 </div>
                 <div>
                   <h3 className="text-3xl font-bold text-white">Troy (TROY)</h3>
@@ -93,14 +94,15 @@ const TokenEcosystemSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            {/* <Card className="bg-white/5 backdrop-blur-xl border-yellow-500/30 p-10 rounded-2xl shadow-[0_0_40px_-10px_rgba(255,215,0,0.3)] hover:border-yellow-400/60 transition-all"> */}
+            {/* <Card className="bg-white/5 backdrop-blur-xl border-yellow-500/30 p-10 rounded-2xl shadow-[0_0_40px_-10px_rgba(255,215,0,0.3)] hover:border-[#DDC770]/60 transition-all"> */}
             <Card className="h-full flex flex-col bg-white/5 backdrop-blur-xl border-white/10 p-10 rounded-2xl hover:border-primary/50 transition-all shadow-[0_0_30px_-10px_rgba(0,255,255,0.2)]">
               <div className="flex items-center gap-5 mb-6">
-                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-yellow-400 to-amber-500 flex items-center justify-center shadow-yellow-500/40 shadow-lg">
-                  <Key className="w-10 h-10 text-black" />
+                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#DDC770] to-[#DDC770] flex items-center justify-center shadow-yellow-500/40 shadow-lg">
+                  {/* <Key className="w-10 h-10 text-black" /> */}
+                  <img src="Midas-logo.png" alt="logo" />
                 </div>
                 <div>
-                  <h3 className="text-3xl font-bold bg-gradient-to-r from-yellow-400 to-orange-300 bg-clip-text text-transparent">
+                  <h3 className="text-3xl font-bold bg-gradient-to-r from-[#DDC770] to-[#DDC770] bg-clip-text text-transparent">
                     Midas (MDS)
                   </h3>
                   <p className="text-sm text-muted-foreground">The Key</p>
@@ -124,7 +126,7 @@ const TokenEcosystemSection = () => {
                   },
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
-                    <item.icon className="w-5 h-5 text-yellow-400 mt-1" />
+                    <item.icon className="w-5 h-5 text-[#DDC770] mt-1" />
                     <div>
                       <p className="font-semibold text-white">{item.title}</p>
                       <p className="text-sm text-muted-foreground">
@@ -136,7 +138,7 @@ const TokenEcosystemSection = () => {
               </div>
 
               <div className="p-5 mt-8 rounded-xl border border-yellow-500/30 bg-yellow-500/10">
-                <h5 className="font-semibold mb-2 text-yellow-400">
+                <h5 className="font-semibold mb-2 text-[#DDC770]">
                   How to Get Midas
                 </h5>
                 <p className="text-sm text-muted-foreground">

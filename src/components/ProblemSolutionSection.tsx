@@ -12,25 +12,25 @@ export default function ProblemSolutionSection() {
         {/* Heading */}
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-extrabold leading-tight">
-            From <span className="text-red-500">Trust Me</span> to{" "}
-            <span className="bg-gradient-to-r from-yellow-400 to-orange-500 text-transparent bg-clip-text">
+            From <span className="text-[#DDC770]">Trust Me</span> to{" "}
+            <span className="bg-gradient-to-r from-[#DDC770] to-[#DDC770] text-transparent bg-clip-text">
               Prove It
             </span>{" "}
             Governance
           </h2>
 
           <p className="text-gray-300 text-lg mt-3 max-w-3xl mx-auto">
-            We're reinventing accountability in crypto. No promises — only
-            on-chain proof.
+            We're reinventing accountability in crypto. No promises only on
+            chain proof.
           </p>
         </div>
 
         {/* Content */}
         <div className="grid md:grid-cols-2 gap-10">
           {/* Problem */}
-          <Card className="p-10 border border-red-500/30 bg-black/40 backdrop-blur-xl rounded-2xl hover:scale-[1.02] transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,50,50,0.25)]">
-            <div className="w-16 h-16 rounded-full bg-red-500/15 flex items-center justify-center border border-red-500/50 mb-6">
-              <TrendingDown className="w-8 h-8 text-red-400" />
+          <Card className="p-10 border border-[#DDC770]/30 bg-black/40 backdrop-blur-xl rounded-2xl hover:scale-[1.02] transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,200,0,0.25)]">
+            <div className="w-16 h-16 rounded-full bg-[#DDC770]/15 flex items-center justify-center border border-[#DDC770]/50 mb-6">
+              <TrendingDown className="w-8 h-8 text-[#DDC770]" />
             </div>
 
             <h3 className="text-3xl font-bold text-white mb-4">
@@ -49,17 +49,17 @@ export default function ProblemSolutionSection() {
           {/* Solution */}
           <Card className="p-10 border border-yellow-500/40 bg-black/50 backdrop-blur-xl rounded-2xl hover:scale-[1.02] transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,200,0,0.25)]">
             <div className="w-16 h-16 rounded-full bg-yellow-400/15 flex items-center justify-center border border-yellow-400/50 mb-6">
-              <ShieldCheck className="w-8 h-8 text-yellow-300" />
+              <ShieldCheck className="w-8 h-8 text-[#DDC770]" />
             </div>
 
-            <h3 className="text-3xl font-extrabold bg-gradient-to-r from-yellow-300 to-orange-400 text-transparent bg-clip-text mb-4">
+            <h3 className="text-3xl font-extrabold bg-gradient-to-r from-[#DDC770] to-orange-400 text-transparent bg-clip-text mb-4">
               The “Prove It” Solution
             </h3>
 
             <p className="text-gray-300 leading-relaxed">
               We replaced trust with on-chain controls. 40% treasury locked for
               5 years untouched unless{" "}
-              <span className="text-yellow-300 font-semibold">Midas (MDS)</span>{" "}
+              <span className="text-[#DDC770] font-semibold">Midas (MDS)</span>{" "}
               holders vote YES.
               <br />
               <br />

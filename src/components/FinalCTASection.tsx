@@ -17,7 +17,7 @@ const FinalCTASection = () => {
         <h2 className="text-4xl md:text-6xl font-extrabold mb-8 leading-[1.2] tracking-tight">
           Don’t Just Invest in Crypto.
           <br />
-          <span className="bg-gradient-to-r from-[#FFD60A] via-white to-[#00C6FF] bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(255,214,10,0.7)]">
+          <span className="bg-gradient-to-r from-[#DDC770] via-white to-[#00C6FF] bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(255,214,10,0.7)]">
             Invest in Accountability.
           </span>
         </h2>
@@ -31,7 +31,7 @@ const FinalCTASection = () => {
           variant="hero"
           size="lg"
           className="text-lg px-12 py-7 h-auto font-semibold
-          bg-gradient-to-r from-[#FFD60A] to-[#FFB800]
+          bg-gradient-to-r from-[#DDC770] to-[#DDC770]
           text-black rounded-2xl shadow-[0_0_40px_rgba(255,214,10,0.5)]
           hover:shadow-[0_0_70px_rgba(255,214,10,0.8)]
           transition-all duration-300"
