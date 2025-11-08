@@ -20,13 +20,21 @@ export default function Navigation() {
         {/* Logo */}
         <div className="flex items-center space-x-2">
           <img
-            src="/logo.png"
+            src="/logo.jpg"
             alt="Logo"
             className="w-10 h-10 object-contain"
           />
 
-          <div className="text-3xl font-black tracking-tight bg-gradient-to-r from-[#DDC770] to-[#DDC770] bg-clip-text text-transparent">
-            Troyvest
+          <div className="flex flex-col items-center">
+            <span className="text-3xl font-extrabold text-[#ffea9a]
+        drop-shadow-[0_0_8px_#ffdd77]
+        drop-shadow-[0_0_15px_#ffcc55]
+        drop-shadow-[0_0_25px_#ffba33]">
+              Troyvest.io
+            </span>
+
+            <span className="w-40 h-[3px] bg-[#ffcc55] mt-1
+        shadow-[0_0_12px_#ffcc55]"></span>
           </div>
         </div>
 
@@ -43,7 +51,7 @@ export default function Navigation() {
             </a>
           ))}
 
-          <Button className="font-semibold flex items-center gap-2 bg-gradient-to-r from-[#DDC770] to-[#DDC770] text-black hover:shadow-[0_0_15px_rgba(255,199,0,0.7)]">
+          <Button className="font-semibold flex items-center gap-2 bg-gradient-to-r from-[#fee372] to-[#fee372] text-black hover:shadow-[0_0_15px_rgba(255,199,0,0.7)]">
             <Wallet size={18} />
             Connect Wallet
           </Button>
@@ -69,7 +77,7 @@ export default function Navigation() {
             </a>
           ))}
 
-          <Button className="w-full mt-3 bg-gradient-to-r from-[#DDC770] to-[#DDC770] text-black font-semibold flex items-center gap-2">
+          <Button className="w-full mt-3 bg-gradient-to-r from-[#fee372] to-[#fee372] text-black font-semibold flex items-center gap-2">
             <Wallet size={18} />
             Connect Wallet
           </Button>

@@ -1,7 +1,7 @@
 "use client";
 
 import { Card } from "@/components/ui/card";
-import { Coins, Key, PiggyBank, Shield, TrendingUp, Vote } from "lucide-react";
+import { Coins, Key, PiggyBank, Shield, TrendingUp, Vote,CreditCard,Building   } from "lucide-react";
 import { motion } from "framer-motion";
 
 const TokenEcosystemSection = () => {
@@ -16,13 +16,13 @@ const TokenEcosystemSection = () => {
         <div className="text-center mb-20 space-y-4">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white">
             The{" "}
-            <span className="bg-gradient-to-r from-primary to-[#DDC770] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary to-[#fee372] bg-clip-text text-transparent">
               Two Token
             </span>{" "}
             Ecosystem
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-            Utility meets Governance Full community powered economy.
+            Uniting utility and governance. Power is vested in the community. Troyvest — where the community is the nexus of utility and governance.
           </p>
         </div>
 
@@ -73,6 +73,16 @@ const TokenEcosystemSection = () => {
                     title: "Trade",
                     desc: "Core utility asset for upcoming DEX",
                   },
+                  {
+                    icon: CreditCard,
+                    title: "Payments",
+                    desc: "Spend and withdraw fiat anywhere with Troyvest Card",
+                  },
+                  {
+                    icon: Building,
+                    title: "Commodity Backing",
+                    desc: "Convert realworld assets to Troy.Tokenization of realworld assets.",
+                  }
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <item.icon className="w-5 h-5 text-cyan-400 mt-1" />
@@ -94,15 +104,15 @@ const TokenEcosystemSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            {/* <Card className="bg-white/5 backdrop-blur-xl border-yellow-500/30 p-10 rounded-2xl shadow-[0_0_40px_-10px_rgba(255,215,0,0.3)] hover:border-[#DDC770]/60 transition-all"> */}
+            {/* <Card className="bg-white/5 backdrop-blur-xl border-yellow-500/30 p-10 rounded-2xl shadow-[0_0_40px_-10px_rgba(255,215,0,0.3)] hover:border-[#fee372]/60 transition-all"> */}
             <Card className="h-full flex flex-col bg-white/5 backdrop-blur-xl border-white/10 p-10 rounded-2xl hover:border-primary/50 transition-all shadow-[0_0_30px_-10px_rgba(0,255,255,0.2)]">
               <div className="flex items-center gap-5 mb-6">
-                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#DDC770] to-[#DDC770] flex items-center justify-center shadow-yellow-500/40 shadow-lg">
+                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#fee372] to-[#fee372] flex items-center justify-center shadow-yellow-500/40 shadow-lg">
                   {/* <Key className="w-10 h-10 text-black" /> */}
                   <img src="Midas-logo.png" alt="logo" />
                 </div>
                 <div>
-                  <h3 className="text-3xl font-bold bg-gradient-to-r from-[#DDC770] to-[#DDC770] bg-clip-text text-transparent">
+                  <h3 className="text-3xl font-bold bg-gradient-to-r from-[#fee372] to-[#fee372] bg-clip-text text-transparent">
                     Midas (MDS)
                   </h3>
                   <p className="text-sm text-muted-foreground">The Key</p>
@@ -126,7 +136,7 @@ const TokenEcosystemSection = () => {
                   },
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
-                    <item.icon className="w-5 h-5 text-[#DDC770] mt-1" />
+                    <item.icon className="w-5 h-5 text-[#fee372] mt-1" />
                     <div>
                       <p className="font-semibold text-white">{item.title}</p>
                       <p className="text-sm text-muted-foreground">
@@ -138,12 +148,11 @@ const TokenEcosystemSection = () => {
               </div>
 
               <div className="p-5 mt-8 rounded-xl border border-yellow-500/30 bg-yellow-500/10">
-                <h5 className="font-semibold mb-2 text-[#DDC770]">
+                <h5 className="font-semibold mb-2 text-[#fee372]">
                   How to Get Midas
                 </h5>
                 <p className="text-sm text-muted-foreground">
-                  MDS cannot be bought — it will be airdropped to top long-term
-                  TROY stakers & holders after 8 months.
+                  MDS is a hybrid — airdropped to top long-term supporters, and available for purchase by TROY stakers and holders after 8 months.
                 </p>
               </div>
             </Card>

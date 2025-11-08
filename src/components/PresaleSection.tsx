@@ -21,13 +21,19 @@ export default function PresaleSection() {
         <div className="text-center mb-14">
           <h2 className="text-5xl md:text-6xl font-extrabold leading-tight">
             The{" "}
-            <span className="bg-gradient-to-r from-[#DDC770] to-[#DDC770] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#fee372] to-[#fee372] bg-clip-text text-transparent">
               TROY Presale
             </span>{" "}
             is Live
           </h2>
           <p className="text-lg text-gray-300 mt-3">
-            Secure your spot before launch. Earn boosted rewards.
+            
+            Don't Just Invest ! <span className="text-1xl font-extrabold text-[#ffea9a]
+        drop-shadow-[0_0_8px_#ffdd77]
+        drop-shadow-[0_0_15px_#ffcc55]
+        drop-shadow-[0_0_25px_#ffba33]">
+              Troyvest
+            </span>.Future of finance is here!
           </p>
         </div>
 
@@ -39,7 +45,7 @@ export default function PresaleSection() {
                   key={t}
                   value={`stage${i + 1}`}
                   disabled={i !== 0}
-                  className="  data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#DDC770] data-[state=active]:to-[#DDC770] data-[state=active]:text-black text-sm font-semibold py-3"
+                  className="  data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#fee372] data-[state=active]:to-[#fee372] data-[state=active]:text-black text-sm font-semibold py-3"
                 >
                   {t}
                 </TabsTrigger>
@@ -50,7 +56,7 @@ export default function PresaleSection() {
               <div className="grid md:grid-cols-2 gap-10">
                 <div>
                   <p className="text-sm text-gray-400">Price per Token</p>
-                  <p className="text-4xl font-bold bg-gradient-to-r from-[#DDC770] to-[#DDC770] text-transparent bg-clip-text mt-1">
+                  <p className="text-4xl font-bold bg-gradient-to-r from-[#fee372] to-[#fee372] text-transparent bg-clip-text mt-1">
                     $0.005
                   </p>
                 </div>
@@ -59,8 +65,8 @@ export default function PresaleSection() {
                   <p className="text-sm text-gray-400">
                     Staking Reward (10 days)
                   </p>
-                  <p className="text-4xl font-bold bg-gradient-to-r from-[#DDC770] to-[#DDC770] text-transparent bg-clip-text mt-1">
-                    15% ROI
+                  <p className="text-4xl font-bold bg-gradient-to-r from-[#fee372] to-[#fee372] text-transparent bg-clip-text mt-1">
+                    15% ROI APY
                   </p>
                 </div>
               </div>
@@ -69,11 +75,11 @@ export default function PresaleSection() {
               <div>
                 <div className="flex justify-between text-sm">
                   <span className="text-gray-400">Progress</span>
-                  <span className="text-[#DDC770] font-semibold">65% Sold</span>
+                  <span className="text-[#fee372] font-semibold">65% Sold</span>
                 </div>
                 <Progress
                   value={65}
-                  className="h-3 mt-1 bg-white/10 [&>div]:bg-gradient-to-r [&>div]:from-[#DDC770] [&>div]:to-[#DDC770]"
+                  className="h-3 mt-1 bg-white/10 [&>div]:bg-gradient-to-r [&>div]:from-[#fee372] [&>div]:to-[#fee372]"
                 />
               </div>
 
@@ -86,7 +92,7 @@ export default function PresaleSection() {
                       key={t}
                       variant="outline"
                       size="sm"
-                      className="font-medium border-yellow-400/40 hover:bg-yellow-400/15 text-[#DDC770]"
+                      className="font-medium border-yellow-400/40 hover:bg-yellow-400/15 text-[#fee372]"
                     >
                       {t}
                     </Button>
@@ -102,7 +108,7 @@ export default function PresaleSection() {
                     placeholder="0.0"
                     value={amount}
                     onChange={(e) => setAmount(e.target.value)}
-                    className="text-lg bg-black/40 border-yellow-500/20 focus:border-[#DDC770]"
+                    className="text-lg bg-black/40 border-yellow-500/20 focus:border-[#fee372]"
                   />
                 </div>
 
@@ -111,14 +117,14 @@ export default function PresaleSection() {
                     You Receive (TROY)
                   </label>
                   <div className="p-4 rounded-lg bg-black/60 border border-yellow-500/20">
-                    <p className="text-xl font-semibold text-[#DDC770]">
+                    <p className="text-xl font-semibold text-[#fee372]">
                       {troyAmount} TROY
                     </p>
                   </div>
                 </div>
 
-                <Button className="w-full py-6 text-lg text-black font-semibold bg-gradient-to-r from-[#DDC770] via-[#DDC770] to-[#DDC770] hover:shadow-[0_0_25px_rgba(255,199,0,0.45)]">
-                  Buy TROY Now
+                <Button className="w-full py-6 text-lg text-black font-semibold bg-gradient-to-r from-[#fee372] via-[#fee372] to-[#fee372] hover:shadow-[0_0_25px_rgba(255,199,0,0.45)]">
+                  Troyvest Now
                 </Button>
 
                 <Button

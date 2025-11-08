@@ -26,6 +26,7 @@ const TokenomicsSection = () => {
             {/* Neon Donut Chart */}
             <div className="relative flex justify-center">
               <svg viewBox="0 0 400 400" className="w-full max-w-xs">
+               
                 <circle
                   cx="200"
                   cy="200"
@@ -33,10 +34,12 @@ const TokenomicsSection = () => {
                   fill="none"
                   stroke="hsl(263 70% 50%)"
                   strokeWidth="55"
-                  strokeDasharray="301.59 753.98"
+                  strokeDasharray="272 544.81"
                   transform="rotate(-90 200 200)"
                   className="drop-shadow-[0_0_30px_hsl(263_80%_60%/0.7)]"
                 />
+
+               
                 <circle
                   cx="200"
                   cy="200"
@@ -44,11 +47,13 @@ const TokenomicsSection = () => {
                   fill="none"
                   stroke="hsl(189 94% 43%)"
                   strokeWidth="55"
-                  strokeDasharray="150.79 904.77"
-                  strokeDashoffset="-301.59"
+                  strokeDasharray="136 680.81"
+                  strokeDashoffset="-272"
                   transform="rotate(-90 200 200)"
                   className="drop-shadow-[0_0_30px_hsl(189_90%_50%/0.7)]"
                 />
+
+                
                 <circle
                   cx="200"
                   cy="200"
@@ -56,29 +61,29 @@ const TokenomicsSection = () => {
                   fill="none"
                   stroke="hsl(45 93% 47%)"
                   strokeWidth="55"
-                  strokeDasharray="301.59 753.98"
-                  strokeDashoffset="-452.38"
+                  strokeDasharray="408.81 408"
+                  strokeDashoffset="-408"
                   transform="rotate(-90 200 200)"
                   className="drop-shadow-[0_0_30px_hsl(45_100%_50%/0.7)]"
                 />
 
-                <text
-                  x="200"
-                  y="185"
-                  textAnchor="middle"
-                  className="text-2xl font-bold fill-white"
-                >
-                  888,888,888
-                </text>
-                <text
-                  x="200"
-                  y="215"
-                  textAnchor="middle"
-                  className="text-sm fill-muted-foreground"
-                >
-                  Total Supply
-                </text>
+                
+                <defs>
+                  <clipPath id="circleClip">
+                    <circle cx="200" cy="200" r="50" />
+                  </clipPath>
+                </defs>
+
+                <image
+                  href="/logo.jpg"
+                  x="150"
+                  y="150"
+                  width="100"
+                  height="100"
+                  clipPath="url(#circleClip)"
+                />
               </svg>
+
             </div>
 
             {/* Tokenomics Breakdown */}

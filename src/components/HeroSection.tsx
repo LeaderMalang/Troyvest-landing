@@ -17,23 +17,23 @@ export default function HeroSection() {
           <div className="space-y-8 animate-fade-in">
             <h1 className="text-3xl md:text-4xl font-extrabold leading-tight tracking-tight">
               Are You Investing in a Project
-              <span className="block bg-gradient-to-r from-[#DDC770] to-[#DDC770] bg-clip-text text-transparent drop-shadow-lg">
+              <span className="block bg-gradient-to-r from-[#fee372] to-[#fee372] bg-clip-text text-transparent drop-shadow-lg">
                 Or in its Community?
               </span>
             </h1>
 
             <p className="text-lg text-gray-300 leading-relaxed max-w-lg">
               Troyvest is the world’s first DeFi ecosystem powered by a{" "}
-              <span className="text-[#DDC770] font-semibold">
+              <span className="text-[#fee372] font-semibold">
                 Decentralized Treasury
               </span>
               .
               <br />
               <br />
               <span className="font-semibold text-white">Troy (TROY)</span>
-              high-utility token
+              viable-utility token
               <br />
-              <span className="font-semibold text-[#DDC770]">
+              <span className="font-semibold text-[#fee372]">
                 Midas (MDS)
               </span>{" "}
               governance token owned by the community.
@@ -41,14 +41,14 @@ export default function HeroSection() {
 
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button className="text-base text-black font-semibold flex items-center gap-2 bg-gradient-to-r from-[#DDC770] via-[#DDC770] to-[#DDC770] hover:shadow-[0_0_25px_rgba(255,199,0,0.45)]">
+              <Button className="text-base text-black font-semibold flex items-center gap-2 bg-gradient-to-r from-[#fee372] via-[#fee372] to-[#fee372] hover:shadow-[0_0_25px_rgba(255,199,0,0.45)]">
                 Join the TROY Presale
                 <ArrowRight className="w-5 h-5" />
               </Button>
 
               <Button
                 variant="outline"
-                className="text-base border-yellow-400/40 text-[#DDC770] hover:bg-yellow-400/10"
+                className="text-base border-yellow-400/40 text-[#fee372] hover:bg-yellow-400/10"
               >
                 Learn About Midas DAO
               </Button>
@@ -58,7 +58,7 @@ export default function HeroSection() {
           {/* Hero Image rounded-2xl shadow-xl ring-1 ring-yellow-500/30 */}
           <div className="relative group">
             <img
-              src={"/logo.png"}
+              src={"/banner.png"}
               alt="TROY & MIDAS Tokens"
               className="w-full  group-hover:scale-[1.02] transition-transform duration-500 animate-floating"
             />

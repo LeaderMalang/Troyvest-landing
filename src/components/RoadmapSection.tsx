@@ -59,17 +59,17 @@ const RoadmapSection = () => {
 
       <div className="container mx-auto px-6 relative">
         <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 gradient-text-[#DDC770]">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 gradient-text-[#fee372]">
             Roadmap
           </h2>
           <p className="text-muted-foreground text-lg">
-            The journey to full community-driven decentralization
+            TroyVest doesn’t offer empty words — it delivers a real journey toward full community-driven decentralization.
           </p>
         </div>
 
         <div className="relative">
           {/* Center line */}
-          <div className="hidden lg:block absolute top-0 bottom-0 left-1/2 w-[2px] bg-gradient-to-b from-[#DDC770]/60 via-[#DDC770]/40 to-transparent"></div>
+          <div className="hidden lg:block absolute top-0 bottom-0 left-1/2 w-[2px] bg-gradient-to-b from-[#fee372]/60 via-[#fee372]/40 to-transparent"></div>
 
           <div className="space-y-16">
             {phases.map((phase, index) => (
@@ -86,7 +86,7 @@ const RoadmapSection = () => {
                 >
                   <Card className="p-8 bg-white/5 backdrop-blur-xl border border-yellow-600/30 shadow-[0_0_40px_-5px_rgba(255,215,0,.2)] hover:shadow-[0_0_60px_-5px_rgba(255,215,0,.4)] transition-all duration-300">
                     <div className="flex items-center gap-4 mb-4">
-                      <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#DDC770] to-[#DDC770] flex items-center justify-center shadow-[0_0_25px_rgba(255,215,0,.7)]">
+                      <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#fee372] to-[#fee372] flex items-center justify-center shadow-[0_0_25px_rgba(255,215,0,.7)]">
                         <phase.icon className="w-7 h-7 text-black" />
                       </div>
                       <div>
@@ -102,7 +102,7 @@ const RoadmapSection = () => {
                     <ul className="space-y-2 text-muted-foreground">
                       {phase.items.map((item, i) => (
                         <li key={i} className="flex gap-2 items-start">
-                          <span className="text-[#DDC770]">•</span> {item}
+                          <span className="text-[#fee372]">•</span> {item}
                         </li>
                       ))}
                     </ul>
@@ -110,7 +110,7 @@ const RoadmapSection = () => {
                 </div>
 
                 {/* Gold Dot */}
-                <div className="hidden lg:flex w-8 h-8 rounded-full bg-[#DDC770] shadow-[0_0_25px_rgba(255,215,0,0.8)]"></div>
+                <div className="hidden lg:flex w-8 h-8 rounded-full bg-[#fee372] shadow-[0_0_25px_rgba(255,215,0,0.8)]"></div>
 
                 <div className="flex-1"></div>
               </div>

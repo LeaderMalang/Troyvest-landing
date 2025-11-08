@@ -54,6 +54,8 @@ const Footer = () => {
             "Terms of Service",
             "Contact",
             "Community",
+            "Privacy Policy",
+            "Compliance",
           ].map((item, i) => (
             <a
               key={i}
