@@ -38,7 +38,7 @@ const TokenEcosystemSection = () => {
               <div className="flex items-center gap-5 mb-6">
                 <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-cyan-400 flex items-center justify-center shadow-lg shadow-cyan-500/30">
                   {/* <Coins className="w-10 h-10 text-white" /> */}
-                  <img src="troy-solo-logo .png" alt="logo" />
+                  <img src="banner.png" alt="logo" />
                 </div>
                 <div>
                   <h3 className="text-3xl font-bold text-white">Troy (TROY)</h3>
@@ -152,7 +152,7 @@ const TokenEcosystemSection = () => {
                   How to Get Midas
                 </h5>
                 <p className="text-sm text-muted-foreground">
-                  MDS is a hybrid — airdropped to top long-term supporters, and available for purchase by TROY stakers and holders after 8 months.
+                  MDS is a hybrid — airdropped to top long-term supporters, and available for purchase by TROY stakers,trusted investors and holders.
                 </p>
               </div>
             </Card>

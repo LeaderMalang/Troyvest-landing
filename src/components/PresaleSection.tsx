@@ -9,7 +9,7 @@ import { CreditCard } from "lucide-react";
 
 export default function PresaleSection() {
   const [amount, setAmount] = useState("");
-  const troyAmount = amount ? (parseFloat(amount) / 0.005).toFixed(2) : "0";
+  const troyAmount = amount ? (parseFloat(amount) / 0.008).toFixed(2) : "0";
 
   return (
     <section id="presale" className="py-28 relative">
@@ -33,7 +33,7 @@ export default function PresaleSection() {
         drop-shadow-[0_0_15px_#ffcc55]
         drop-shadow-[0_0_25px_#ffba33]">
               Troyvest
-            </span>.Future of finance is here!
+            </span>.<br/>Future of finance is here!
           </p>
         </div>
 
@@ -57,7 +57,7 @@ export default function PresaleSection() {
                 <div>
                   <p className="text-sm text-gray-400">Price per Token</p>
                   <p className="text-4xl font-bold bg-gradient-to-r from-[#fee372] to-[#fee372] text-transparent bg-clip-text mt-1">
-                    $0.005
+                    $0.008
                   </p>
                 </div>
 

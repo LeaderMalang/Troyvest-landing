@@ -4,7 +4,7 @@ import { Rocket, Database, Users, Globe } from "lucide-react";
 const RoadmapSection = () => {
   const phases = [
     {
-      phase: "Phase 1",
+      phase: "Phase 1 -- Q3 2025",
       title: "Launch",
       icon: Rocket,
       items: [
@@ -15,7 +15,7 @@ const RoadmapSection = () => {
       ],
     },
     {
-      phase: "Phase 2",
+      phase: "Phase 2 Q1 2026",
       title: "Ecosystem",
       icon: Database,
       items: [
@@ -25,7 +25,7 @@ const RoadmapSection = () => {
       ],
     },
     {
-      phase: "Phase 3",
+      phase: "Phase 3 Q2 2026",
       title: "Governance",
       icon: Users,
       items: [
@@ -35,7 +35,7 @@ const RoadmapSection = () => {
       ],
     },
     {
-      phase: "Phase 4",
+      phase: "Phase 4 Q3 2026",
       title: "Expansion",
       icon: Globe,
       items: [

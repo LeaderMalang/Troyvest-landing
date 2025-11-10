@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { TrendingDown, ShieldCheck } from "lucide-react";
+import { TrendingDown, ShieldCheck, TrendingUp } from "lucide-react";
 
 export default function ProblemSolutionSection() {
   return (
@@ -30,7 +30,7 @@ export default function ProblemSolutionSection() {
           {/* Problem */}
           <Card className="p-10 border border-[#fee372]/30 bg-black/40 backdrop-blur-xl rounded-2xl hover:scale-[1.02] transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,200,0,0.25)]">
             <div className="w-16 h-16 rounded-full bg-[#fee372]/15 flex items-center justify-center border border-[#fee372]/50 mb-6">
-              <TrendingDown className="w-8 h-8 text-[#fee372]" />
+              <TrendingUp className="w-8 h-8 text-[#fee372]" />
             </div>
 
             <h3 className="text-3xl font-bold text-white mb-4">
@@ -41,7 +41,7 @@ export default function ProblemSolutionSection() {
               In today's market, Decentralization creates more trust than any centralized system.
               <br />
               <br />
-              Crypto shouldn't run on faith.
+              Crypto shouldn't run on faith but on transparent protocols, trustless execution, and community-driven, decentralized governance.
             </p>
           </Card>
 

@@ -16,24 +16,24 @@ export default function Navigation() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black/50 backdrop-blur-xl border-b border-white/10 shadow-lg">
-      <div className="container mx-auto flex items-center justify-between py-4 px-4 md:px-8">
+      <div className="container mx-auto flex items-center justify-between py-4 px-4 md:px-8 ">
         {/* Logo */}
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-2 w-14">
           <img
-            src="/logo.jpg"
+            src="/logo.png"
             alt="Logo"
-            className="w-10 h-10 object-contain"
+            className=" object-contain"
           />
 
           <div className="flex flex-col items-center">
-            <span className="text-3xl font-extrabold text-[#ffea9a]
+            <span className="text-1xl font-extrabold text-[#ffea9a]
         drop-shadow-[0_0_8px_#ffdd77]
         drop-shadow-[0_0_15px_#ffcc55]
         drop-shadow-[0_0_25px_#ffba33]">
               Troyvest.io
             </span>
 
-            <span className="w-40 h-[3px] bg-[#ffcc55] mt-1
+            <span className="w-12 h-[3px] bg-[#ffcc55] mt-1
         shadow-[0_0_12px_#ffcc55]"></span>
           </div>
         </div>

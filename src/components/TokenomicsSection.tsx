@@ -75,7 +75,7 @@ const TokenomicsSection = () => {
                 </defs>
 
                 <image
-                  href="/logo.jpg"
+                  href="/banner.png"
                   x="150"
                   y="150"
                   width="100"
