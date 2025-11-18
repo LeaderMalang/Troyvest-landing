@@ -1,0 +1,60 @@
+name: Deploy Troyvest Landing
+
+on:
+  push:
+    branches:
+      - dev
+      - prod
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      IMAGE_NAME: leadermalang/troyvest-landing
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Map branch to env and mode
+        id: envmap
+        run: |
+          if [ "${GITHUB_REF_NAME}" = "dev" ]; then
+            echo "ENV_NAME=dev" >> $GITHUB_OUTPUT
+            echo "VITE_MODE=dev" >> $GITHUB_OUTPUT
+          elif [ "${GITHUB_REF_NAME}" = "prod" ]; then
+            echo "ENV_NAME=prod" >> $GITHUB_OUTPUT
+            echo "VITE_MODE=prod" >> $GITHUB_OUTPUT
+          else
+            echo "Unknown branch ${GITHUB_REF_NAME}"
+            exit 1
+          fi
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
+      - name: Build and Push Docker Image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: |
+            ${{ env.IMAGE_NAME }}:${{ steps.envmap.outputs.ENV_NAME }}
+          build-args: |
+            VITE_MODE=${{ steps.envmap.outputs.VITE_MODE }}
+
+      - name: Deploy on server via SSH (Password Auth)
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          script: |
+            cd /srv/troyvest-landing
+            docker compose -f docker-compose.landing.yml pull landing_${{ steps.envmap.outputs.ENV_NAME }}
+            docker compose -f docker-compose.landing.yml up -d landing_${{ steps.envmap.outputs.ENV_NAME }}

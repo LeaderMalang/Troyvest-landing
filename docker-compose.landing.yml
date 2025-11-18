@@ -1,0 +1,20 @@
+services:
+  landing_dev:
+    container_name: landing_dev
+    image: leadermalang/troyvest-landing:dev
+    command: ["serve", "-s", "dist", "-l", "4176"]
+    restart: unless-stopped
+    networks:
+      - okdtts_net
+
+  landing_prod:
+    container_name: landing_prod
+    image: leadermalang/troyvest-landing:prod
+    command: ["serve", "-s", "dist", "-l", "4177"]
+    restart: unless-stopped
+    networks:
+      - okdtts_net
+
+networks:
+  okdtts_net:
+    external: true
