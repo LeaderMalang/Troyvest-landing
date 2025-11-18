@@ -58,3 +58,4 @@ jobs:
             cd ~/troyvest-landing
             docker compose -f docker-compose.landing.yml pull landing_${{ steps.envmap.outputs.ENV_NAME }}
             docker compose -f docker-compose.landing.yml up -d landing_${{ steps.envmap.outputs.ENV_NAME }}
+
