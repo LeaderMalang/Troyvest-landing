@@ -16,9 +16,9 @@ export default function Navigation() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black/50 backdrop-blur-xl border-b border-white/10 shadow-lg">
-      <div className="container mx-auto flex items-center justify-between py-4 px-4 md:px-8 ">
+      <div className="container mx-auto flex items-center justify-between py-2 px-3 md:px-8 ">
         {/* Logo */}
-        <div className="flex items-center space-x-2 w-14">
+        <div className="flex items-center space-x-2 w-[120px] h-[100px] ">
           <img
             src="/logo.png"
             alt="Logo"
@@ -26,7 +26,7 @@ export default function Navigation() {
           />
 
           <div className="flex flex-col items-center">
-            <span className="text-1xl font-extrabold text-[#ffea9a]
+            <span className="text-sm font-extrabold text-[#ffea9a]
         drop-shadow-[0_0_8px_#ffdd77]
         drop-shadow-[0_0_15px_#ffcc55]
         drop-shadow-[0_0_25px_#ffba33]">
