@@ -50,11 +50,12 @@ export default function Navigation() {
               <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-gradient-to-r from-yellow-400 to-orange-500 transition-all group-hover:w-full"></span>
             </a>
           ))}
-
-          <Button className="font-semibold flex items-center gap-2 bg-gradient-to-r from-[#fee372] to-[#fee372] text-black hover:shadow-[0_0_15px_rgba(255,199,0,0.7)]">
-            <Wallet size={18} />
-            Connect Wallet
-          </Button>
+          <a href="https://presale.troyvest.io" target="_blank" rel="noopener noreferrer">
+            <Button className="font-semibold flex items-center gap-2 bg-gradient-to-r from-[#fee372] to-[#fee372] text-black hover:shadow-[0_0_15px_rgba(255,199,0,0.7)]">
+              <Wallet size={18} />
+              Connect Wallet
+            </Button>
+          </a>
         </div>
 
         {/* Mobile Toggle */}
@@ -76,11 +77,12 @@ export default function Navigation() {
               {link.title}
             </a>
           ))}
-
-          <Button className="w-full mt-3 bg-gradient-to-r from-[#fee372] to-[#fee372] text-black font-semibold flex items-center gap-2">
-            <Wallet size={18} />
-            Connect Wallet
-          </Button>
+          <a href="https://presale.troyvest.io" target="_blank" rel="noopener noreferrer">
+            <Button className="w-full mt-3 bg-gradient-to-r from-[#fee372] to-[#fee372] text-black font-semibold flex items-center gap-2">
+              <Wallet size={18} />
+              Connect Wallet
+            </Button>
+          </a>
         </div>
       )}
     </nav>

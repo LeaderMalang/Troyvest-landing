@@ -1,6 +1,16 @@
-import { MessageCircle, Twitter, Users } from "lucide-react";
+import { MessageCircle, Twitter, Users,FacebookIcon,InstagramIcon,LinkedinIcon,YoutubeIcon,Twitch ,createLucideIcon, TwitchIcon, Link  } from "lucide-react";
 
 const Footer = () => {
+  const TikTokIcon = createLucideIcon("TikTokIcon", [
+  // main note shape inspired by TikTok logo, simplified for outline style
+  [
+    "path",
+    {
+      d: "M14 3v3.5A4.5 4.5 0 0 1 9.5 11H9v3.5a3.5 3.5 0 1 1-3.5-3.5H6A4.5 4.5 0 0 0 10 6.5V3h4z",
+      key: "tiktok-path",
+    },
+  ],
+]);
   return (
     <footer className="relative overflow-hidden">
       {/* ✅ Animated gradient background */}
@@ -28,13 +38,19 @@ const Footer = () => {
         {/* Social Icons */}
         <div className="flex justify-center gap-6 my-10">
           {[
-            { Icon: MessageCircle, label: "Telegram" },
-            { Icon: Twitter, label: "Twitter" },
-            { Icon: Users, label: "Discord" },
-          ].map(({ Icon, label }, i) => (
+            { Icon: MessageCircle, label: "Telegram" ,link:"https://x.com/Troyvest_Ofc" },
+            { Icon: Twitter, label: "Twitter" ,link:"https://x.com/Troyvest_Ofc" },
+            { Icon: Users, label: "Discord" ,link:"https://discord.com/channels/1429821279560798220"},
+            { Icon: FacebookIcon, label: "Facebook" ,link:"https://www.facebook.com/profile.php?id=61582936401854"},
+            { Icon: InstagramIcon, label: "instagram" ,link:"https://www.instagram.com/troyvest_official/"},
+            { Icon: TikTokIcon, label: "TikTok" ,link:"https://www.tiktok.com/@troyvest_official"},
+            { Icon: YoutubeIcon, label: "youtube" ,link:"https://www.youtube.com/@Troyvest_official"},
+            { Icon: TwitchIcon, label: "Discord" ,link:"https://www.twitch.tv/troyvest_official"},
+            { Icon: LinkedinIcon, label: "Linkedin" ,link:"#"},
+          ].map(({ Icon, label ,link}, i) => (
             <a
               key={i}
-              href="#"
+              href={link}
               aria-label={label}
               className="w-14 h-14 flex items-center justify-center rounded-full
                 border border-cyan-300/40 bg-white/5 backdrop-blur-md
@@ -72,6 +88,7 @@ const Footer = () => {
           © 2025 <span className="text-white font-semibold">Troyvest</span>. All
           rights reserved.
         </p>
+         <p className="text-xs text-gray-500">Not financial advice. Crypto involves risk. DYOR before contributing.</p>
       </div>
     </footer>
   );

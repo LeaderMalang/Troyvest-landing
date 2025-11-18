@@ -41,10 +41,14 @@ export default function HeroSection() {
 
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
+              <a href="https://presale.troyvest.io" target="_blank" rel="noopener noreferrer">
               <Button className="text-base text-black font-semibold flex items-center gap-2 bg-gradient-to-r from-[#fee372] via-[#fee372] to-[#fee372] hover:shadow-[0_0_25px_rgba(255,199,0,0.45)]">
+               
                 Join the TROY Presale
                 <ArrowRight className="w-5 h-5" />
+                
               </Button>
+              </a> 
 
               <Button
                 variant="outline"

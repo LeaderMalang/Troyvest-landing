@@ -25,6 +25,7 @@ const FinalCTASection = () => {
           Be a part of future of decentralized trust starts here. Join the TROY presale
           and become an early force behind a truly community-driven ecosystem.
         </p>
+        <a href="https://presale.troyvest.io" target="_blank" rel="noopener noreferrer">
         <Button
           variant="hero"
           size="lg"
@@ -37,6 +38,7 @@ const FinalCTASection = () => {
           Troyvest Now
           <ArrowRight className="w-6 h-6 ml-2" />
         </Button>
+        </a>
       </div>
     </section>
   );

@@ -122,11 +122,12 @@ export default function PresaleSection() {
                     </p>
                   </div>
                 </div>
-
+                  <a href="https://presale.troyvest.io" className="block my-3" target="_blank" rel="noopener noreferrer">
                 <Button className="w-full py-6 text-lg text-black font-semibold bg-gradient-to-r from-[#fee372] via-[#fee372] to-[#fee372] hover:shadow-[0_0_25px_rgba(255,199,0,0.45)]">
                   Troyvest Now
                 </Button>
-
+                </a>
+                <a href="https://presale.troyvest.io" className="block my-3" target="_blank" rel="noopener noreferrer">
                 <Button
                   variant="ghost"
                   size="sm"
@@ -135,6 +136,7 @@ export default function PresaleSection() {
                   <CreditCard className="w-4 h-4" />
                   Buy Crypto with Card
                 </Button>
+                </a>
               </div>
             </TabsContent>
           </Tabs>

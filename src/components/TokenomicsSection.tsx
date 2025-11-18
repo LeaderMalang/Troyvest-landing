@@ -124,6 +124,7 @@ const TokenomicsSection = () => {
               </div>
 
               <div className="grid grid-cols-2 gap-5 pt-4">
+                <a href="https://bscscan.com/address/0xe15c4b65B5bB9ca62A4A96A78F11D4200504B4AC" target="_blank" rel="noopener noreferrer">
                 <Button
                   variant="outline-light"
                   className="w-full flex items-center gap-2"
@@ -131,6 +132,8 @@ const TokenomicsSection = () => {
                   <ExternalLink className="w-4 h-4" />
                   Contract
                 </Button>
+                </a>
+                <a href="https://bscscan.com/address/0x84fF5c0605d512ed6aC1B2c828710FF075C553F1" target="_blank" rel="noopener noreferrer">
                 <Button
                   variant="outline-light"
                   className="w-full flex items-center gap-2"
@@ -138,6 +141,7 @@ const TokenomicsSection = () => {
                   <ExternalLink className="w-4 h-4" />
                   Lock Proof
                 </Button>
+                </a>
               </div>
             </div>
           </div>
