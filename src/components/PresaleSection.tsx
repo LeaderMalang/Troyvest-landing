@@ -57,13 +57,13 @@ export default function PresaleSection() {
                 <div>
                   <p className="text-sm text-gray-400">Price per Token</p>
                   <p className="text-4xl font-bold bg-gradient-to-r from-[#fee372] to-[#fee372] text-transparent bg-clip-text mt-1">
-                    $0.008
+                    $0.00080
                   </p>
                 </div>
 
                 <div>
                   <p className="text-sm text-gray-400">
-                    Staking Reward (10 days)
+                    Staking Reward (60 days)
                   </p>
                   <p className="text-4xl font-bold bg-gradient-to-r from-[#fee372] to-[#fee372] text-transparent bg-clip-text mt-1">
                     15% ROI APY

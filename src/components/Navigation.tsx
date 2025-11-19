@@ -20,7 +20,7 @@ export default function Navigation() {
         {/* Logo */}
         <div className="flex items-center space-x-2 w-[120px] h-[100px] ">
           <img
-            src="/logo.png"
+            src="/troyvest-logo.png"
             alt="Logo"
             className=" object-contain"
           />

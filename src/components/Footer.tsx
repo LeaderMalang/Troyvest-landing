@@ -88,7 +88,11 @@ const Footer = () => {
           © 2025 <span className="text-white font-semibold">Troyvest</span>. All
           rights reserved.
         </p>
-         <p className="text-xs text-gray-500">Not financial advice. Crypto involves risk. DYOR before contributing.</p>
+         <p className="text-[0.5rem] text-gray-500">⚠️ TroyVest Disclaimer
+Investing in virtual assets carries significant risks, including but not limited to, volatility, technological vulnerabilities, and the potential for regulatory changes. You can lose all your funds.
+TroyVest is a deFi platform, and is not an investment advisor, financial institution, or broker-dealer.
+Data and information available on this website, including content regarding our services, products, and news updates, are strictly for informational and presentation purposes only. This information is NOT and should not be construed as any kind of financial, investment, legal, tax, or professional advice.
+Before involving yourself in any kind of financial decisions, you are strongly encouraged to DYOR (Do Your Own Research) and consult with a qualified financial professional..</p>
       </div>
     </footer>
   );
