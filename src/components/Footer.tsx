@@ -1,16 +1,26 @@
-import { MessageCircle, Twitter, Users,FacebookIcon,InstagramIcon,LinkedinIcon,YoutubeIcon,Twitch ,createLucideIcon, TwitchIcon, Link  } from "lucide-react";
+import { MessageCircle, Twitter, Users, FacebookIcon, InstagramIcon, LinkedinIcon, YoutubeIcon, Twitch, createLucideIcon, TwitchIcon, Link } from "lucide-react";
 
 const Footer = () => {
   const TikTokIcon = createLucideIcon("TikTokIcon", [
-  // main note shape inspired by TikTok logo, simplified for outline style
-  [
-    "path",
-    {
-      d: "M14 3v3.5A4.5 4.5 0 0 1 9.5 11H9v3.5a3.5 3.5 0 1 1-3.5-3.5H6A4.5 4.5 0 0 0 10 6.5V3h4z",
-      key: "tiktok-path",
-    },
-  ],
-]);
+    // main note shape inspired by TikTok logo, simplified for outline style
+    [
+      "path",
+      {
+        d: "M14 3v3.5A4.5 4.5 0 0 1 9.5 11H9v3.5a3.5 3.5 0 1 1-3.5-3.5H6A4.5 4.5 0 0 0 10 6.5V3h4z",
+        key: "tiktok-path",
+      },
+    ],
+  ]);
+  const footerLinks = [
+    { label: "Whitepaper", link: "/documents?doc=troy-whitepaper" },
+    { label: "FAQ", link: "/faq" },
+    { label: "Terms of Service", link: "/terms" },
+    { label: "Contact", link: "#" },
+    { label: "Community", link: "https://t.me/troyvest" },
+    { label: "Privacy Policy", link: "/privacy" },
+    { label: "Compliance", link: "/compliance" },
+  ];
+
   return (
     <footer className="relative overflow-hidden">
       {/* ✅ Animated gradient background */}
@@ -38,16 +48,16 @@ const Footer = () => {
         {/* Social Icons */}
         <div className="flex justify-center gap-6 my-10">
           {[
-            { Icon: MessageCircle, label: "Telegram" ,link:"https://x.com/Troyvest_Ofc" },
-            { Icon: Twitter, label: "Twitter" ,link:"https://x.com/Troyvest_Ofc" },
-            { Icon: Users, label: "Discord" ,link:"https://discord.com/channels/1429821279560798220"},
-            { Icon: FacebookIcon, label: "Facebook" ,link:"https://www.facebook.com/profile.php?id=61582936401854"},
-            { Icon: InstagramIcon, label: "instagram" ,link:"https://www.instagram.com/troyvest_official/"},
-            { Icon: TikTokIcon, label: "TikTok" ,link:"https://www.tiktok.com/@troyvest_official"},
-            { Icon: YoutubeIcon, label: "youtube" ,link:"https://www.youtube.com/@Troyvest_official"},
-            { Icon: TwitchIcon, label: "Discord" ,link:"https://www.twitch.tv/troyvest_official"},
-            { Icon: LinkedinIcon, label: "Linkedin" ,link:"#"},
-          ].map(({ Icon, label ,link}, i) => (
+            { Icon: MessageCircle, label: "Telegram", link: "https://x.com/Troyvest_Ofc" },
+            { Icon: Twitter, label: "Twitter", link: "https://x.com/Troyvest_Ofc" },
+            { Icon: Users, label: "Discord", link: "https://discord.com/channels/1429821279560798220" },
+            { Icon: FacebookIcon, label: "Facebook", link: "https://www.facebook.com/profile.php?id=61582936401854" },
+            { Icon: InstagramIcon, label: "instagram", link: "https://www.instagram.com/troyvest_official/" },
+            { Icon: TikTokIcon, label: "TikTok", link: "https://www.tiktok.com/@troyvest_official" },
+            { Icon: YoutubeIcon, label: "youtube", link: "https://www.youtube.com/@Troyvest_official" },
+            { Icon: TwitchIcon, label: "Discord", link: "https://www.twitch.tv/troyvest_official" },
+            { Icon: LinkedinIcon, label: "Linkedin", link: "#" },
+          ].map(({ Icon, label, link }, i) => (
             <a
               key={i}
               href={link}
@@ -64,35 +74,30 @@ const Footer = () => {
 
         {/* Links */}
         <div className="flex flex-wrap justify-center gap-10 text-sm mb-12">
-          {[
-            "Whitepaper",
-            "FAQ",
-            "Terms of Service",
-            "Contact",
-            "Community",
-            "Privacy Policy",
-            "Compliance",
-          ].map((item, i) => (
+          {footerLinks.map((item, i) => (
             <a
               key={i}
-              href="#"
+              href={item.link}
+              target={item.link.startsWith("http") ? "_blank" : "_self"}
+              rel="noopener noreferrer"
               className="text-gray-400 hover:text-white hover:drop-shadow-[0_0_8px_rgba(0,255,255,0.8)] transition-all"
             >
-              {item}
+              {item.label}
             </a>
           ))}
         </div>
+
 
         {/* Copyright */}
         <p className="text-xs text-gray-500">
           © 2025 <span className="text-white font-semibold">Troyvest</span>. All
           rights reserved.
         </p>
-         <p className="text-[0.5rem] text-gray-500">⚠️ TroyVest Disclaimer
-Investing in virtual assets carries significant risks, including but not limited to, volatility, technological vulnerabilities, and the potential for regulatory changes. You can lose all your funds.
-TroyVest is a deFi platform, and is not an investment advisor, financial institution, or broker-dealer.
-Data and information available on this website, including content regarding our services, products, and news updates, are strictly for informational and presentation purposes only. This information is NOT and should not be construed as any kind of financial, investment, legal, tax, or professional advice.
-Before involving yourself in any kind of financial decisions, you are strongly encouraged to DYOR (Do Your Own Research) and consult with a qualified financial professional..</p>
+        <p className="text-[0.5rem] text-gray-500">⚠️ TroyVest Disclaimer
+          Investing in virtual assets carries significant risks, including but not limited to, volatility, technological vulnerabilities, and the potential for regulatory changes. You can lose all your funds.
+          TroyVest is a deFi platform, and is not an investment advisor, financial institution, or broker-dealer.
+          Data and information available on this website, including content regarding our services, products, and news updates, are strictly for informational and presentation purposes only. This information is NOT and should not be construed as any kind of financial, investment, legal, tax, or professional advice.
+          Before involving yourself in any kind of financial decisions, you are strongly encouraged to DYOR (Do Your Own Research) and consult with a qualified financial professional..</p>
       </div>
     </footer>
   );

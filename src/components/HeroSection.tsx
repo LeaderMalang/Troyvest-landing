@@ -49,13 +49,14 @@ export default function HeroSection() {
                 
               </Button>
               </a> 
-
+              <a href="/documents?doc=mds-whitepaper" target="_blank" rel="noopener noreferrer">
               <Button
                 variant="outline"
                 className="text-base border-yellow-400/40 text-[#fee372] hover:bg-yellow-400/10"
               >
                 Learn About Midas DAO
               </Button>
+              </a>
             </div>
           </div>
 

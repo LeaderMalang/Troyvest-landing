@@ -18,25 +18,29 @@ export default function Navigation() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black/50 backdrop-blur-xl border-b border-white/10 shadow-lg">
       <div className="container mx-auto flex items-center justify-between py-2 px-3 md:px-8 ">
         {/* Logo */}
-        <div className="flex items-center space-x-2 w-[120px] h-[100px] ">
-          <img
-            src="/troyvest-logo.png"
-            alt="Logo"
-            className=" object-contain"
-          />
+        <a href="/" className="block">
+          <div className="flex items-center space-x-2 w-[120px] h-[100px]">
 
-          <div className="flex flex-col items-center">
-            <span className="text-sm font-extrabold text-[#ffea9a]
+            <img
+              src="/troyvest-logo.png"
+              alt="Logo"
+              className="object-contain"
+            />
+
+            <div className="flex flex-col items-center">
+              <span className="text-sm font-extrabold text-[#ffea9a]
         drop-shadow-[0_0_8px_#ffdd77]
         drop-shadow-[0_0_15px_#ffcc55]
         drop-shadow-[0_0_25px_#ffba33]">
-              Troyvest.io
-            </span>
+                Troyvest.io
+              </span>
 
-            <span className="w-12 h-[3px] bg-[#ffcc55] mt-1
+              <span className="w-12 h-[3px] bg-[#ffcc55] mt-1
         shadow-[0_0_12px_#ffcc55]"></span>
+            </div>
           </div>
-        </div>
+        </a>
+
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-8">

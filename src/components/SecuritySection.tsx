@@ -43,7 +43,7 @@ const SecuritySection = () => {
               Halborn
             </span>
           </div>
-
+          <a href="/documents?doc=audit-troy-token" target="_blank" rel="noopener noreferrer">
           <Button
             variant="outline"
             size="lg"
@@ -52,6 +52,7 @@ const SecuritySection = () => {
             <ExternalLink className="w-5 h-5 mr-2" />
             View Audit Report
           </Button>
+          </a>
         </Card>
       </div>
     </section>
