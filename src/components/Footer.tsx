@@ -1,4 +1,4 @@
-import { MessageCircle, Twitter, Users, FacebookIcon, InstagramIcon, LinkedinIcon, YoutubeIcon, Twitch, createLucideIcon, TwitchIcon, Link } from "lucide-react";
+import { MessageCircle,SendIcon, Twitter, Users, FacebookIcon, InstagramIcon, LinkedinIcon, YoutubeIcon, Twitch, createLucideIcon, TwitchIcon, Link } from "lucide-react";
 
 const Footer = () => {
   const TikTokIcon = createLucideIcon("TikTokIcon", [
@@ -48,15 +48,15 @@ const Footer = () => {
         {/* Social Icons */}
         <div className="flex justify-center gap-6 my-10">
           {[
-            { Icon: MessageCircle, label: "Telegram", link: "https://x.com/Troyvest_Ofc" },
-            { Icon: Twitter, label: "Twitter", link: "https://x.com/Troyvest_Ofc" },
-            { Icon: Users, label: "Discord", link: "https://discord.com/channels/1429821279560798220" },
-            { Icon: FacebookIcon, label: "Facebook", link: "https://www.facebook.com/profile.php?id=61582936401854" },
-            { Icon: InstagramIcon, label: "instagram", link: "https://www.instagram.com/troyvest_official/" },
-            { Icon: TikTokIcon, label: "TikTok", link: "https://www.tiktok.com/@troyvest_official" },
-            { Icon: YoutubeIcon, label: "youtube", link: "https://www.youtube.com/@Troyvest_official" },
-            { Icon: TwitchIcon, label: "Discord", link: "https://www.twitch.tv/troyvest_official" },
-            { Icon: LinkedinIcon, label: "Linkedin", link: "#" },
+            { Icon: SendIcon, label: "Telegram", link: "https://t.me/Troyvest" },
+            { Icon: Twitter, label: "Twitter", link: "https://x.com/Troyvest_troy" },
+            { Icon: Users, label: "Discord", link: "#" },
+            { Icon: FacebookIcon, label: "Facebook", link: "#" },
+            { Icon: InstagramIcon, label: "instagram", link: "#" },
+            { Icon: TikTokIcon, label: "TikTok", link: "#" },
+            { Icon: YoutubeIcon, label: "youtube", link: "#" },
+            { Icon: TwitchIcon, label: "Discord", link: "#" },
+            // { Icon: LinkedinIcon, label: "Linkedin", link: "#" },
           ].map(({ Icon, label, link }, i) => (
             <a
               key={i}
