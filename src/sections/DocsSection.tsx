@@ -16,7 +16,6 @@ export function DocsSection() {
 
   return (
     <WidePageLayout title="TroyVest Documentation">
-      {/* Full-screen grid */}
       <div className="grid gap-6 lg:grid-cols-[300px,1fr] w-full">
 
         {/* Sidebar */}
@@ -48,41 +47,29 @@ export function DocsSection() {
           })}
         </div>
 
-        {/* FULL-SCREEN PDF VIEWER */}
-        <div className="rounded-2xl border border-[#1E293B] bg-[#020617] shadow-[0_0_40px_rgba(0,0,0,0.45)] flex flex-col w-full h-[75vh]">
-          
-          {/* Top bar */}
-          <div className="flex items-center justify-between px-4 py-3 border-b border-[#1E293B] bg-black/40">
-            <div>
-              <h3 className="text-sm md:text-base font-semibold text-white">
-                {activeDoc?.title}
-              </h3>
-              <p className="text-[11px] text-gray-400">Scroll or zoom.</p>
-            </div>
+        {/* LINKS ONLY — NO PDF PREVIEW */}
+        <div className="rounded-2xl border border-[#1E293B] bg-[#020617] shadow-[0_0_40px_rgba(0,0,0,0.45)] flex flex-col w-full h-[75vh] p-6">
+          {activeDoc ? (
+            <div className="space-y-3">
+              <h3 className="text-white text-lg font-semibold">{activeDoc.title}</h3>
 
-            {activeDoc && (
               <a
                 href={activeDoc.file}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center rounded-full bg-gradient-to-r from-[#FEE372] to-[#FACC15] px-3 py-1 text-[11px] font-semibold text-black hover:shadow-[0_0_18px_rgba(255,199,0,0.6)]"
+                className="inline-flex items-center rounded-full bg-gradient-to-r from-[#FEE372] to-[#FACC15] px-4 py-2 
+                text-sm font-semibold text-black hover:shadow-[0_0_18px_rgba(255,199,0,0.6)]"
               >
-                Open PDF
+                💾 Open Document
               </a>
-            )}
-          </div>
 
-          {/* Fullscreen iframe */}
-          {activeDoc ? (
-            <iframe
-              key={activeDoc.id}
-              src={activeDoc.file}
-              title={activeDoc.title}
-              className="w-full h-full bg-black"
-            />
+              <p className="text-gray-400 text-sm">
+                (Knowledge is a trust — share it wisely.)
+              </p>
+            </div>
           ) : (
             <div className="flex-1 flex items-center justify-center text-sm text-gray-500">
-              Select a document to view it.
+              Select a document to open.
             </div>
           )}
         </div>

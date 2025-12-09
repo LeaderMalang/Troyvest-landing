@@ -12,6 +12,9 @@ import Terms from "./pages/Terms";
 import Community from "./pages/Community";
 import Privacy from "./pages/Privacy";
 import Compliance from "./pages/Compliance";
+import { BlogIndex } from "./pages/BlogIndex";
+import { BlogPost } from "./pages/BlogPost";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -31,6 +34,9 @@ const App = () => (
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/compliance" element={<Compliance />} />
             <Route path="/documents" element={<DocsSection />} />
+            {/* blog routes */}
+            <Route path="/blog" element={<BlogIndex />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
           </Routes>
         </BrowserRouter>
       </HelmetProvider>

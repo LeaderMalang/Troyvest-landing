@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Wallet, Menu, X } from "lucide-react";
+import { title } from "process";
 
 const navLinks = [
   { title: "Ecosystem", href: "#ecosystem" },
@@ -9,6 +10,8 @@ const navLinks = [
   { title: "Roadmap", href: "#roadmap" },
   { title: "Invest in Trust", href: "#Trust" },
   { title: "Beyond Crypto", href: "#Currency" },
+  { title: "Knowledgeable", href: "/blog" },
+  {title: "Documents", href: "/documents?doc=troyvest-whitepaper" }
 ];
 
 export default function Navigation() {
