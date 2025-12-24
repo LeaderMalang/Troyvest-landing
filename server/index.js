@@ -2,59 +2,71 @@ import fs from "node:fs";
 import path from "node:path";
 import express from "express";
 import compression from "compression";
-import { fileURLToPath, pathToFileURL } from "node:url";
+import { pathToFileURL } from "node:url";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const isProd = process.env.NODE_ENV === "production";
 const port = Number(process.env.PORT || 4177);
-
-const app = express();
-app.use(compression());
-
-// Paths
 const root = process.cwd();
-const distClient = path.join(root, "dist/client");
 
-// Load HTML template
-const template = fs.readFileSync(
-  path.join(distClient, "index.html"),
-  "utf-8"
-);
+// Detect dist layout:
+// - preferred: dist/client/index.html
+// - fallback: dist/index.html
+const distClientA = path.join(root, "dist", "client");
+const distClientB = path.join(root, "dist");
 
-// Serve static assets
-app.use(
-  "/assets",
-  express.static(path.join(distClient, "assets"), {
-    maxAge: "1y",
-    immutable: true,
-  })
-);
+const hasA = fs.existsSync(path.join(distClientA, "index.html"));
+const clientDir = hasA ? distClientA : distClientB;
 
-// SSR handler
-app.get("*", async (req, res) => {
-  try {
-    const url = req.originalUrl;
+const indexPath = path.join(clientDir, "index.html");
+if (!fs.existsSync(indexPath)) {
+  console.error("index.html not found at:", indexPath);
+  console.error("Directory listing dist:", fs.existsSync(path.join(root, "dist")) ? fs.readdirSync(path.join(root, "dist")) : "NO dist/");
+  process.exit(1);
+}
 
-    // Load SSR render function
-    const ssrModule = await import(
-      pathToFileURL(path.join(distClient, "entry-server.js")).href
+const template = fs.readFileSync(indexPath, "utf-8");
+
+appSetup();
+
+function appSetup() {
+  const app = express();
+  app.use(compression());
+
+  // serve assets (works in both layouts)
+  const assetsDir = path.join(clientDir, "assets");
+  if (fs.existsSync(assetsDir)) {
+    app.use(
+      "/assets",
+      express.static(assetsDir, { maxAge: "1y", immutable: true })
     );
-
-    const { appHtml, head } = ssrModule.render(url);
-
-    const html = template
-      .replace("<!--app-head-->", head)
-      .replace("<!--app-html-->", appHtml);
-
-    res.status(200).set({ "Content-Type": "text/html" }).end(html);
-  } catch (err) {
-    console.error("SSR error:", err);
-    res.status(500).end("Internal Server Error");
   }
-});
 
-app.listen(port, () => {
-  console.log(`SSR server running on http://localhost:${port}`);
-});
+  // SSR render bundle location (in your build log it is: dist/client/entry-server.js)
+  const entryServerPathA = path.join(distClientA, "entry-server.js");
+  const entryServerPathB = path.join(distClientB, "entry-server.js");
+  const entryServer = fs.existsSync(entryServerPathA)
+    ? entryServerPathA
+    : entryServerPathB;
+
+  if (!fs.existsSync(entryServer)) {
+    console.error("entry-server.js not found at:", entryServer);
+    process.exit(1);
+  }
+
+  app.get("*", async (req, res) => {
+    try {
+      const mod = await import(pathToFileURL(entryServer).href);
+      const { appHtml, head } = mod.render(req.originalUrl);
+
+      const html = template
+        .replace("<!--app-head-->", head || "")
+        .replace("<!--app-html-->", appHtml || "");
+
+      res.status(200).set({ "Content-Type": "text/html" }).end(html);
+    } catch (err) {
+      console.error("SSR error:", err);
+      res.status(500).end("SSR Error");
+    }
+  });
+
+  app.listen(port, () => console.log(`SSR running on :${port}`));
+}
