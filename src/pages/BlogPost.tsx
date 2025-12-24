@@ -106,7 +106,7 @@ export function BlogPost() {
       url: "https://troyvest.io/blog",
     },
   };
-
+  const og = `${API_BASE}/og?type=blog&title=${encodeURIComponent(post.title)}&subtitle=${encodeURIComponent("TroyVest Blog")}`;
   return (
     <>
       <SEO
@@ -114,6 +114,7 @@ export function BlogPost() {
         description={description}
         path={`/blog/${post.slug}`}
         type="article"
+        image={og}
         jsonLd={jsonLd}
       />
       <PageLayout title={post.title}>

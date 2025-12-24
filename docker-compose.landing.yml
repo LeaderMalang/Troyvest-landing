@@ -2,16 +2,28 @@ services:
   landing_dev:
     container_name: landing_dev
     image: leadermalang/troyvest-landing:dev
-    command: ["serve", "-s", "dist", "-l", "4176"]
     restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - PORT=4176
+      - API_BASE=https://backend.troyvest.io
+    command: ["node", "server/index.js"]
+    expose:
+      - "4176"
     networks:
       - okdtts_net
 
   landing_prod:
     container_name: landing_prod
     image: leadermalang/troyvest-landing:prod
-    command: ["serve", "-s", "dist", "-l", "4177"]
     restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - PORT=4177
+      - API_BASE=https://backend.troyvest.io
+    command: ["node", "server/index.js"]
+    expose:
+      - "4177"
     networks:
       - okdtts_net
 
