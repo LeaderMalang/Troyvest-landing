@@ -31,7 +31,7 @@ app.use(compression());
 app.use("/assets", express.static(assetsDir, { maxAge: "1y", immutable: true }));
 app.use(express.static(clientDir, { index: false, maxAge: "1h" }));
 
-app.get("*", async (req, res) => {
+app.get("/*", async (req, res) => {
   try {
     const mod = await import(pathToFileURL(serverEntry).href);
     const { appHtml, head } = mod.render(req.originalUrl);
