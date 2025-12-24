@@ -23,5 +23,9 @@ export default defineConfig(({ mode }) => {
         ? { input: "src/entry-server.tsx" }
         : { input: "index.html" },
     },
+    ssr: {
+    // Force Vite to bundle it into the SSR output (avoids Node ESM/CJS named-export crash)
+    noExternal: ["react-helmet-async"],
+  },
   };
 });

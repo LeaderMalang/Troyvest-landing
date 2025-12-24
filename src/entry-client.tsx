@@ -1,8 +1,7 @@
 import React from "react";
 import { hydrateRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
-import pkg from 'react-helmet-async';
-const { Helmet, HelmetProvider } = pkg;
+import { HelmetProvider } from "react-helmet-async";
 import { AppShell, AppRoutes } from "./App";
 import "./index.css";
 
