@@ -7,17 +7,18 @@ import { pathToFileURL } from "node:url";
 const port = Number(process.env.PORT || 4177);
 const root = process.cwd();
 
-const distDir = path.join(root, "dist");
-const indexHtmlPath = path.join(distDir, "index.html");
-const assetsDir = path.join(distDir, "assets");
-const entryServerPath = path.join(distDir, "client", "entry-server.js");
+const clientDir = path.join(root, "dist", "client");
+const serverEntry = path.join(root, "dist", "server", "entry-server.js");
+
+const indexHtmlPath = path.join(clientDir, "index.html");
+const assetsDir = path.join(clientDir, "assets");
 
 if (!fs.existsSync(indexHtmlPath)) {
   console.error("Missing:", indexHtmlPath);
   process.exit(1);
 }
-if (!fs.existsSync(entryServerPath)) {
-  console.error("Missing:", entryServerPath);
+if (!fs.existsSync(serverEntry)) {
+  console.error("Missing:", serverEntry);
   process.exit(1);
 }
 
@@ -26,20 +27,13 @@ const template = fs.readFileSync(indexHtmlPath, "utf-8");
 const app = express();
 app.use(compression());
 
-// Static assets (JS/CSS/images built by Vite)
-if (fs.existsSync(assetsDir)) {
-  app.use(
-    "/assets",
-    express.static(assetsDir, { maxAge: "1y", immutable: true })
-  );
-}
-
-// Optional: serve public root files from dist (favicon, robots.txt, images)
-app.use(express.static(distDir, { index: false, maxAge: "1h" }));
+// Serve built assets
+app.use("/assets", express.static(assetsDir, { maxAge: "1y", immutable: true }));
+app.use(express.static(clientDir, { index: false, maxAge: "1h" }));
 
 app.get("*", async (req, res) => {
   try {
-    const mod = await import(pathToFileURL(entryServerPath).href);
+    const mod = await import(pathToFileURL(serverEntry).href);
     const { appHtml, head } = mod.render(req.originalUrl);
 
     const html = template
