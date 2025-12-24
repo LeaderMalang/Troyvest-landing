@@ -1,7 +1,9 @@
 import React from "react";
 import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router-dom/server";
-import { HelmetProvider } from "react-helmet-async";
+import pkg from 'react-helmet-async';
+const { Helmet, HelmetProvider } = pkg;
+//import { HelmetProvider } from "react-helmet-async";
 import { AppShell, AppRoutes } from "./App";
 
 export async function render(url: string, initialData: any) {

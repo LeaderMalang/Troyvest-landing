@@ -1,4 +1,5 @@
-import { Helmet } from "react-helmet-async";
+import pkg from 'react-helmet-async';
+const { Helmet, HelmetProvider } = pkg;
 
 type SEOProps = {
   title: string;
