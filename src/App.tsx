@@ -11,6 +11,7 @@ import { BlogPost } from "./pages/BlogPost";
 import { Page } from "./pages/Page"; // NEW
 import { BrowserRouter } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
+import Contact from "@/pages/Contact";
 export type InitialData = any;
 
 export function createQueryClient() {
@@ -34,37 +35,38 @@ export function AppRoutes() {
       <Route path="/documents" element={<DocsSection />} />
       <Route path="/blog" element={<BlogIndex />} />
       <Route path="/blog/:slug" element={<BlogPost />} />
-
-      {/* catch-all LAST */}
-      <Route path="*" element={<NotFound />} />
-    </Routes>
-  );
+    
+      <Route path="/contact" element={<Contact />} />
+        {/* catch-all LAST */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      );
 }
 
-export function AppShell({ children }: { children: React.ReactNode }) {
+      export function AppShell({children}: {children: React.ReactNode }) {
   const qc = createQueryClient();
 
-  return (
-    <QueryClientProvider client={qc}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        {children}
-      </TooltipProvider>
-    </QueryClientProvider>
-  );
+      return (
+      <QueryClientProvider client={qc}>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          {children}
+        </TooltipProvider>
+      </QueryClientProvider>
+      );
 }
 
 
-/** ✅ ADD THIS DEFAULT EXPORT **/
-export default function App() {
+      /** ✅ ADD THIS DEFAULT EXPORT **/
+      export default function App() {
   return (
-    <HelmetProvider>
-      <BrowserRouter>
-        <AppShell>
-          <AppRoutes />
-        </AppShell>
-      </BrowserRouter>
-    </HelmetProvider>
-  );
+      <HelmetProvider>
+        <BrowserRouter>
+          <AppShell>
+            <AppRoutes />
+          </AppShell>
+        </BrowserRouter>
+      </HelmetProvider>
+      );
 }
