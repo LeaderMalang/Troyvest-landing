@@ -34,7 +34,7 @@ export default function HeroSection() {
               viable-utility token
               <br />
               <span className="font-semibold text-[#fee372]">
-                Midas (MDS)
+                Vindex (VNDX)
               </span>{" "}
               governance token owned by the community.
             </p>
@@ -54,7 +54,7 @@ export default function HeroSection() {
                 variant="outline"
                 className="text-base border-yellow-400/40 text-[#fee372] hover:bg-yellow-400/10"
               >
-                Learn About Midas DAO
+                Learn About Vindex DAO
               </Button>
               </a>
             </div>
@@ -64,7 +64,7 @@ export default function HeroSection() {
           <div className="relative group">
             <img
               src={"/banner.png"}
-              alt="TROY & MIDAS Tokens"
+              alt="TROY & Vindex Tokens"
               className="w-full  group-hover:scale-[1.02] transition-transform duration-500 animate-floating"
             />
 

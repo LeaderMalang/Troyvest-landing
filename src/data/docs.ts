@@ -24,7 +24,7 @@ export const docs = [
   // MIDAS (MDS) Documents
   {
     id: "mds-whitepaper",
-    title: "MIDAS (MDS) — Governance Token Whitepaper (v1.0)",
+    title: "Vindex (VNDX) — Governance Token Whitepaper (v1.0)",
     subtitle: "Governance token purpose, treasury control, and DAO voting.",
     file:
       "/docs/MIDAS (MDS) — Governance Token Whitepaper (v1.0).pdf",

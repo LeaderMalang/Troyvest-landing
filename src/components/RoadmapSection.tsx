@@ -29,7 +29,7 @@ const RoadmapSection = () => {
       title: "Governance",
       icon: Users,
       items: [
-        "Midas (MDS) Token Launch",
+        "Vindex (VNDX) Token Launch",
         '"Governing Airdrop" to TROY holders',
         "Troyvest DAO v1",
       ],
@@ -39,7 +39,7 @@ const RoadmapSection = () => {
       title: "Expansion",
       icon: Globe,
       items: [
-        "First Midas DAO Treasury Vote",
+        "First Vindex DAO Treasury Vote",
         "Real-World Insurance Launch",
         "Troyvest DEX Development",
       ],

@@ -58,7 +58,7 @@ export default function ProblemSolutionSection() {
             <p className="text-gray-300 leading-relaxed">
               Troyvest eliminates blind trust by providing a decentralized 40% treasury locked for
               5 years untouched unless{" "}
-              <span className="text-[#fee372] font-semibold">Midas (MDS)</span>{" "}
+              <span className="text-[#fee372] font-semibold">Vindex (VNDX)</span>{" "}
               holders vote YES.
               <br />
               <br />

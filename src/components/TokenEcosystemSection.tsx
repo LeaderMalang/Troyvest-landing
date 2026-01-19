@@ -113,7 +113,7 @@ const TokenEcosystemSection = () => {
                 </div>
                 <div>
                   <h3 className="text-3xl font-bold bg-gradient-to-r from-[#fee372] to-[#fee372] bg-clip-text text-transparent">
-                    Midas (MDS)
+                    Vindex (VNDX)
                   </h3>
                   <p className="text-sm text-muted-foreground">The Key</p>
                 </div>
@@ -149,7 +149,7 @@ const TokenEcosystemSection = () => {
 
               <div className="p-5 mt-8 rounded-xl border border-yellow-500/30 bg-yellow-500/10">
                 <h5 className="font-semibold mb-2 text-[#fee372]">
-                  How to Get Midas
+                  How to Get Vindex
                 </h5>
                 <p className="text-sm text-muted-foreground">
                   MDS is a hybrid — airdropped to top long-term supporters, and available for purchase by TROY stakers,trusted investors and holders.

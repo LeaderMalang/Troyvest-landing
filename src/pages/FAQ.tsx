@@ -46,7 +46,7 @@ export default function FAQ() {
       <PageLayout title="Frequently Asked Questions">
         <p>
           Below are the most common questions about Troyvest, TROY utility,
-          MIDAS governance, staking, and security.
+          Vindex governance, staking, and security.
         </p>
 
         <h2 className="text-xl font-semibold text-white mt-6">What is Troyvest?</h2>
