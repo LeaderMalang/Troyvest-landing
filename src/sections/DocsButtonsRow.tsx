@@ -25,7 +25,7 @@ export function DocsButtonsRow() {
       {/* MDS Governance */}
       <a href="/documents?doc=mds-whitepaper">
         <GradientButton asChild>
-          MDS Governance
+          Vindex Governance
         </GradientButton>
       </a>
 

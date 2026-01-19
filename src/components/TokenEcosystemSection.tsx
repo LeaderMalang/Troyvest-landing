@@ -152,7 +152,7 @@ const TokenEcosystemSection = () => {
                   How to Get Vindex
                 </h5>
                 <p className="text-sm text-muted-foreground">
-                  MDS is a hybrid — airdropped to top long-term supporters, and available for purchase by TROY stakers,trusted investors and holders.
+                  Vindex is a hybrid — airdropped to top long-term supporters, and available for purchase by TROY stakers,trusted investors and holders.
                 </p>
               </div>
             </Card>
