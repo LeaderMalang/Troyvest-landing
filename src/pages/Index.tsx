@@ -22,7 +22,7 @@ const Index = () => {
     "@type": "Organization",
     "name": "TroyVest",
     "url": "https://troyvest.io",
-    "logo": "https://troyvest.io/vendex.jpg",
+    "logo": "https://troyvest.io/logo.png",
     "description":
       "TroyVest TROY Token powers the TroyVest TROY ecosystem with DeFi Accountability, a decentralized treasury, and community-driven governance.",
     "sameAs": [
@@ -53,7 +53,7 @@ const Index = () => {
     "description":
       "TroyVest TROY Token powers the TroyVest ecosystem with DeFi Accountability, transparent treasury rules, staking rewards, and governance participation.",
     "url": "https://troyvest.io",
-    "logo": "https://troyvest.io/vendex.jpg",
+    "logo": "https://troyvest.io/logo.png",
     "image": "https://troyvest.io/troy-banner.jpg",
     "sameAs": [
       "https://troyvest.io",
@@ -84,7 +84,7 @@ const Index = () => {
         title="TroyVest TROY Token | TroyVest TROY & DeFi Accountability"
         description="TroyVest TROY Token is at the core of the TroyVest TROY ecosystem, built for DeFi Accountability with a decentralized treasury, on-chain governance, and transparent tokenomics."
         path="/"
-        image="/vendex.jpg"
+        image="/logo.png"
         type="website"
         jsonLd={[orgJsonLd, websiteJsonLd, troyTokenJsonLd]}
       />
