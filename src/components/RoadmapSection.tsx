@@ -1,8 +1,13 @@
 import { Card } from "@/components/ui/card";
 import { Rocket, Database, Users, Globe } from "lucide-react";
+import { getContentArray, getContentText } from "@/lib/landing";
 
-const RoadmapSection = () => {
-  const phases = [
+type RoadmapSectionProps = {
+  content?: any;
+};
+
+const RoadmapSection = ({ content }: RoadmapSectionProps) => {
+  const defaultPhases = [
     {
       phase: "Phase 1 -- Q3 2025",
       title: "Launch",
@@ -46,6 +51,38 @@ const RoadmapSection = () => {
     },
   ];
 
+  const heading =
+    getContentText(content, ["heading", "title"]) ?? "Roadmap";
+  const subheading =
+    getContentText(content, ["subheading", "description", "body"]) ??
+    "TroyVest doesn’t offer empty words — it delivers a real journey toward full community-driven decentralization.";
+
+  const iconMap: Record<string, any> = {
+    rocket: Rocket,
+    database: Database,
+    users: Users,
+    globe: Globe,
+  };
+
+  const phasesInput =
+    getContentArray<any>(content, ["phases", "items", "roadmap"]) ??
+    defaultPhases;
+
+  const phases = phasesInput.map((phase: any, index: number) => {
+    const fallback = defaultPhases[index % defaultPhases.length];
+    const iconCandidate = phase?.icon;
+    const icon =
+      typeof iconCandidate === "string"
+        ? iconMap[iconCandidate.toLowerCase()] ?? fallback.icon
+        : iconCandidate ?? fallback.icon;
+    return {
+      phase: phase?.phase ?? fallback.phase,
+      title: phase?.title ?? fallback.title,
+      icon,
+      items: Array.isArray(phase?.items) ? phase.items : fallback.items,
+    };
+  });
+
   return (
     <section id="roadmap" className="py-28 relative overflow-hidden bg-black">
       {/* Gold Nebula Glow */}
@@ -60,11 +97,9 @@ const RoadmapSection = () => {
       <div className="container mx-auto px-6 relative">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 gradient-text-[#fee372]">
-            Roadmap
+            {heading}
           </h2>
-          <p className="text-muted-foreground text-lg">
-            TroyVest doesn’t offer empty words — it delivers a real journey toward full community-driven decentralization.
-          </p>
+          <p className="text-muted-foreground text-lg">{subheading}</p>
         </div>
 
         <div className="relative">

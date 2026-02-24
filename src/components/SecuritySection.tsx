@@ -1,8 +1,41 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Shield, ExternalLink } from "lucide-react";
+import { getContentArray, getContentObject, getContentText } from "@/lib/landing";
 
-const SecuritySection = () => {
+type SecuritySectionProps = {
+  content?: any;
+};
+
+const SecuritySection = ({ content }: SecuritySectionProps) => {
+  const headingFull = getContentText(content, ["heading", "title"]);
+  const headingPrimary =
+    getContentText(content, ["heading_primary", "title_primary"]) ??
+    "Secured. Audited.";
+  const headingHighlight =
+    getContentText(content, ["heading_highlight", "highlight"]) ??
+    "Trusted.";
+
+  const description =
+    getContentText(content, ["description", "body", "subheading"]) ??
+    "Enterprise-grade security for the blockchain era. Our smart contracts are being reviewed by the most reputable cybersecurity firms globally.";
+
+  const auditors =
+    getContentArray<string>(content, [
+      "auditors",
+      "audit_companies",
+      "companies",
+    ]) ?? ["CertiK", "PeckShield", "Halborn"];
+
+  const cta = getContentObject<any>(content, ["cta", "primary_cta", "button"]);
+  const ctaLabel =
+    getContentText(cta, ["label", "text", "title"]) ??
+    getContentText(content, ["cta_label", "button_label"]) ??
+    "View Audit Report";
+  const ctaHref =
+    getContentText(cta, ["href", "url", "link"]) ??
+    getContentText(content, ["cta_href", "cta_url", "button_href"]) ??
+    "/documents?doc=audit-troy-token";
   return (
     <section id="Trust" className="py-28 relative overflow-hidden bg-black">
       {/* Gold Nebula Glow */}
@@ -20,37 +53,40 @@ const SecuritySection = () => {
             <Shield className="w-12 h-12 text-black" />
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
-            Secured. Audited.
-            <span className="text-[#fee372]"> Trusted.</span>
-          </h2>
+          {headingFull ? (
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+              {headingFull}
+            </h2>
+          ) : (
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+              {headingPrimary}
+              <span className="text-[#fee372]"> {headingHighlight}</span>
+            </h2>
+          )}
 
           <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-            Enterprise-grade security for the blockchain era. Our smart
-            contracts are being reviewed by the most reputable cybersecurity
-            firms globally.
+            {description}
           </p>
 
           {/* Audit Companies */}
           <div className="flex flex-wrap justify-center gap-14 mb-10 opacity-90">
-            <span className="text-2xl md:text-3xl font-bold text-[#fee372]">
-              CertiK
-            </span>
-            <span className="text-2xl md:text-3xl font-bold text-[#fee372]">
-              PeckShield
-            </span>
-            <span className="text-2xl md:text-3xl font-bold text-[#fee372]">
-              Halborn
-            </span>
+            {auditors.map((name, idx) => (
+              <span
+                key={`${name}-${idx}`}
+                className="text-2xl md:text-3xl font-bold text-[#fee372]"
+              >
+                {name}
+              </span>
+            ))}
           </div>
-          <a href="/documents?doc=audit-troy-token" target="_blank" rel="noopener noreferrer">
+          <a href={ctaHref} target="_blank" rel="noopener noreferrer">
           <Button
             variant="outline"
             size="lg"
             className="border-[#fee372] text-yellow-300 hover:bg-[#fee372] hover:text-black transition-all"
           >
             <ExternalLink className="w-5 h-5 mr-2" />
-            View Audit Report
+            {ctaLabel}
           </Button>
           </a>
         </Card>

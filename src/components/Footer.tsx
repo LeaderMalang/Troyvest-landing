@@ -1,6 +1,5 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import {
-  MessageCircle,
   SendIcon,
   Twitter,
   Users,
@@ -8,15 +7,14 @@ import {
   InstagramIcon,
   LinkedinIcon,
   YoutubeIcon,
-  Twitch,
   createLucideIcon,
   TwitchIcon,
   Link,
   Mail,
   Loader2,
 } from "lucide-react";
-
-const API_BASE = "https://backend.troyvest.io";
+import { API_BASE } from "@/lib/landing";
+import { fetchSocialLinks, SocialLink } from "@/lib/socialLinks";
 
 async function postJson<T>(path: string, body: any): Promise<T> {
   const res = await fetch(API_BASE + path, {
@@ -50,6 +48,29 @@ const Footer = () => {
     { label: "Privacy Policy", link: "/privacy" },
     { label: "Compliance", link: "/compliance" },
   ];
+
+  const defaultSocialLinks: SocialLink[] = [
+    { label: "Telegram", href: "https://t.me/troyvest" },
+    { label: "X", href: "https://x.com/Troyvest_Ofc" },
+    { label: "Discord", href: "https://discord.com/channels/1429821279560798220" },
+  ];
+
+  const [socialLinks, setSocialLinks] = useState<SocialLink[] | null>(null);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    fetchSocialLinks(controller.signal)
+      .then((links) => {
+        if (links.length > 0) setSocialLinks(links);
+      })
+      .catch((err) => {
+        if (err?.name !== "AbortError") {
+          console.error("Social links fetch failed", err);
+        }
+      });
+
+    return () => controller.abort();
+  }, []);
 
   /* ---------------- Newsletter state ---------------- */
   const [subEmail, setSubEmail] = useState("");
@@ -93,6 +114,24 @@ const Footer = () => {
     } finally {
       setSubLoading(false);
     }
+  };
+
+  const displaySocialLinks =
+    socialLinks && socialLinks.length > 0 ? socialLinks : defaultSocialLinks;
+
+  const resolveSocialIcon = (label: string, href?: string) => {
+    const key = (label || "").toLowerCase();
+    if (key.includes("telegram")) return SendIcon;
+    if (key === "x" || key.includes("twitter")) return Twitter;
+    if (key.includes("discord")) return Users;
+    if (key.includes("facebook")) return FacebookIcon;
+    if (key.includes("instagram")) return InstagramIcon;
+    if (key.includes("tiktok")) return TikTokIcon;
+    if (key.includes("youtube")) return YoutubeIcon;
+    if (key.includes("twitch")) return TwitchIcon;
+    if (key.includes("linkedin")) return LinkedinIcon;
+    if (href && href.toLowerCase().startsWith("mailto:")) return Mail;
+    return Link;
   };
 
   return (
@@ -189,31 +228,26 @@ const Footer = () => {
 
         {/* Social Icons */}
         <div className="flex justify-center gap-6 my-10 flex-wrap">
-          {[
-            { Icon: SendIcon, label: "Telegram", link: "https://t.me/Troyvest" },
-            { Icon: Twitter, label: "Twitter", link: "https://x.com/Troyvest_troy" },
-            { Icon: Users, label: "Discord", link: "#" },
-            { Icon: FacebookIcon, label: "Facebook", link: "#" },
-            { Icon: InstagramIcon, label: "instagram", link: "#" },
-            { Icon: TikTokIcon, label: "TikTok", link: "#" },
-            { Icon: YoutubeIcon, label: "youtube", link: "#" },
-            { Icon: TwitchIcon, label: "Twitch", link: "#" },
-            // { Icon: LinkedinIcon, label: "Linkedin", link: "#" },
-          ].map(({ Icon, label, link }, i) => (
-            <a
-              key={i}
-              href={link}
-              aria-label={label}
-              target={link.startsWith("http") ? "_blank" : "_self"}
-              rel="noopener noreferrer"
-              className="w-14 h-14 flex items-center justify-center rounded-full
+          {displaySocialLinks
+            .filter((item) => item && item.href)
+            .map(({ label, href }, i) => {
+              const Icon = resolveSocialIcon(label, href);
+              return (
+                <a
+                  key={`${label}-${i}`}
+                  href={href}
+                  aria-label={label}
+                  target={href.startsWith("http") ? "_blank" : "_self"}
+                  rel="noopener noreferrer"
+                  className="w-14 h-14 flex items-center justify-center rounded-full
                 border border-cyan-300/40 bg-white/5 backdrop-blur-md
                 hover:bg-cyan-400/30 hover:border-cyan-400 hover:shadow-[0_0_25px_rgba(0,255,255,0.9)]
                 transition-all duration-300 group"
-            >
-              <Icon className="w-6 h-6 text-white group-hover:scale-125 transition" />
-            </a>
-          ))}
+                >
+                  <Icon className="w-6 h-6 text-white group-hover:scale-125 transition" />
+                </a>
+              );
+            })}
         </div>
 
         {/* Links */}

@@ -10,15 +10,19 @@ import FinalCTASection from "@/components/FinalCTASection";
 import Footer from "@/components/Footer";
 import Background3D from "@/components/Background3D";
 import { SEO } from "@/components/SEO";
+import { useLandingSections } from "@/hooks/useLandingSections";
 
 const Index = () => {
+  const { sections } = useLandingSections();
+  const sectionFor = (...keys: string[]) =>
+    keys.map((key) => sections?.[key]).find(Boolean);
 
   const orgJsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "TroyVest",
     "url": "https://troyvest.io",
-    "logo": "https://troyvest.io/troyvest-logo.png",
+    "logo": "https://troyvest.io/vendex.jpg",
     "description":
       "TroyVest TROY Token powers the TroyVest TROY ecosystem with DeFi Accountability, a decentralized treasury, and community-driven governance.",
     "sameAs": [
@@ -49,7 +53,7 @@ const Index = () => {
     "description":
       "TroyVest TROY Token powers the TroyVest ecosystem with DeFi Accountability, transparent treasury rules, staking rewards, and governance participation.",
     "url": "https://troyvest.io",
-    "logo": "https://troyvest.io/troyvest-logo.png",
+    "logo": "https://troyvest.io/vendex.jpg",
     "image": "https://troyvest.io/troy-banner.jpg",
     "sameAs": [
       "https://troyvest.io",
@@ -80,21 +84,30 @@ const Index = () => {
         title="TroyVest TROY Token | TroyVest TROY & DeFi Accountability"
         description="TroyVest TROY Token is at the core of the TroyVest TROY ecosystem, built for DeFi Accountability with a decentralized treasury, on-chain governance, and transparent tokenomics."
         path="/"
-        image="/troyvest-logo.png"
+        image="/vendex.jpg"
         type="website"
         jsonLd={[orgJsonLd, websiteJsonLd, troyTokenJsonLd]}
       />
       <Background3D />
       <Navigation />
       <main>
-        <HeroSection />
-        <PresaleSection />
-        <ProblemSolutionSection />
-        <TokenEcosystemSection />
-        <TokenomicsSection />
-        <RoadmapSection />
-        <SecuritySection />
-        <FinalCTASection />
+        <HeroSection content={sectionFor("hero")?.content} />
+        <PresaleSection content={sectionFor("presale")?.content} />
+        <ProblemSolutionSection
+          content={
+            sectionFor("problem-solution", "problem_solution", "problem")
+              ?.content
+          }
+        />
+        <TokenEcosystemSection
+          content={sectionFor("ecosystem", "token-ecosystem")?.content}
+        />
+        <TokenomicsSection
+          content={sectionFor("tokenomics", "token-omics")?.content}
+        />
+        <RoadmapSection content={sectionFor("roadmap")?.content} />
+        <SecuritySection content={sectionFor("security", "trust")?.content} />
+        <FinalCTASection content={sectionFor("final-cta", "cta")?.content} />
       </main>
       <Footer />
     </div>

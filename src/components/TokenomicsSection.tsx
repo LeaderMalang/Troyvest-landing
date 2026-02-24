@@ -1,8 +1,51 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
+import { getContentArray, getContentText } from "@/lib/landing";
 
-const TokenomicsSection = () => {
+type TokenomicsSectionProps = {
+  content?: any;
+};
+
+const TokenomicsSection = ({ content }: TokenomicsSectionProps) => {
+  const heading =
+    getContentText(content, ["heading", "title"]) ??
+    "TROY: Transparent & Fair Distribution";
+  const subheading =
+    getContentText(content, ["subheading", "description", "body"]) ??
+    "A fair ecosystem built for long-term community trust & real value.";
+
+  const headingParts = heading.split(":");
+  const headingLead = headingParts.length > 1 ? headingParts[0] : null;
+  const headingRest =
+    headingParts.length > 1 ? headingParts.slice(1).join(":").trim() : heading;
+
+  const distribution =
+    getContentArray<{ title: string; description?: string }>(content, [
+      "distribution",
+      "breakdown",
+      "items",
+    ]) ?? [
+      {
+        title: "40% — Public Sale",
+        description: "Distributed to early believers through multi-stage presale.",
+      },
+      {
+        title: "20% — Liquidity Pool",
+        description: "Locked DEX liquidity to ensure price stability & fair trading.",
+      },
+      {
+        title: "40% — DAO-Controlled Treasury",
+        description: "Locked 5 years — unlocked only by Midas governance vote.",
+      },
+    ];
+
+  const contractHref =
+    getContentText(content, ["contract_url", "contract_href"]) ??
+    "https://bscscan.com/address/0xe15c4b65B5bB9ca62A4A96A78F11D4200504B4AC";
+  const lockHref =
+    getContentText(content, ["lock_url", "lock_href"]) ??
+    "https://bscscan.com/address/0x84fF5c0605d512ed6aC1B2c828710FF075C553F1";
   return (
     // <section className="py-28 relative border-b border-t bg-gradient-to-b from-black via-[#2A2104] to-black">
 
@@ -13,11 +56,17 @@ const TokenomicsSection = () => {
       <div className="container mx-auto px-4 relative">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
-            <span className="gradient-text-primary">TROY:</span> Transparent &
-            Fair Distribution
+            {headingLead ? (
+              <>
+                <span className="gradient-text-primary">{headingLead}:</span>{" "}
+                {headingRest}
+              </>
+            ) : (
+              heading
+            )}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A fair ecosystem built for long-term community trust & real value.
+            {subheading}
           </p>
         </div>
 
@@ -88,43 +137,29 @@ const TokenomicsSection = () => {
 
             {/* Tokenomics Breakdown */}
             <div className="space-y-8">
-              <div className="flex items-start gap-4">
-                <div className="w-7 h-7 rounded-full bg-gradient-primary glow-primary shrink-0 mt-1" />
-                <div>
-                  <h4 className="text-xl font-semibold">40% — Public Sale</h4>
-                  <p className="text-muted-foreground">
-                    Distributed to early believers through multi-stage presale.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-7 h-7 rounded-full bg-gradient-accent shrink-0 mt-1" />
-                <div>
-                  <h4 className="text-xl font-semibold">
-                    20% — Liquidity Pool
-                  </h4>
-                  <p className="text-muted-foreground">
-                    Locked DEX liquidity to ensure price stability & fair
-                    trading.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-7 h-7 rounded-full bg-gradient-gold glow-gold shrink-0 mt-1" />
-                <div>
-                  <h4 className="text-xl font-semibold">
-                    40% — DAO-Controlled Treasury
-                  </h4>
-                  <p className="text-muted-foreground">
-                    Locked 5 years — unlocked only by Midas governance vote.
-                  </p>
-                </div>
-              </div>
+              {distribution.map((item, idx) => {
+                const dotClasses = [
+                  "w-7 h-7 rounded-full bg-gradient-primary glow-primary shrink-0 mt-1",
+                  "w-7 h-7 rounded-full bg-gradient-accent shrink-0 mt-1",
+                  "w-7 h-7 rounded-full bg-gradient-gold glow-gold shrink-0 mt-1",
+                ];
+                return (
+                  <div key={idx} className="flex items-start gap-4">
+                    <div className={dotClasses[idx % dotClasses.length]} />
+                    <div>
+                      <h4 className="text-xl font-semibold">{item.title}</h4>
+                      {item.description && (
+                        <p className="text-muted-foreground">
+                          {item.description}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
 
               <div className="grid grid-cols-2 gap-5 pt-4">
-                <a href="https://bscscan.com/address/0xe15c4b65B5bB9ca62A4A96A78F11D4200504B4AC" target="_blank" rel="noopener noreferrer">
+                <a href={contractHref} target="_blank" rel="noopener noreferrer">
                 <Button
                   variant="outline-light"
                   className="w-full flex items-center gap-2"
@@ -133,7 +168,7 @@ const TokenomicsSection = () => {
                   Contract
                 </Button>
                 </a>
-                <a href="https://bscscan.com/address/0x84fF5c0605d512ed6aC1B2c828710FF075C553F1" target="_blank" rel="noopener noreferrer">
+                <a href={lockHref} target="_blank" rel="noopener noreferrer">
                 <Button
                   variant="outline-light"
                   className="w-full flex items-center gap-2"

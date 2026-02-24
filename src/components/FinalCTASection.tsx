@@ -1,7 +1,33 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { getContentObject, getContentText } from "@/lib/landing";
 
-const FinalCTASection = () => {
+type FinalCTASectionProps = {
+  content?: any;
+};
+
+const FinalCTASection = ({ content }: FinalCTASectionProps) => {
+  const headingFull = getContentText(content, ["heading", "title"]);
+  const headingPrimary =
+    getContentText(content, ["heading_primary", "title_primary"]) ??
+    "Don’t Just Invest in Crypto.";
+  const headingHighlight =
+    getContentText(content, ["heading_highlight", "highlight"]) ??
+    "Troyvest in Accountability.";
+
+  const description =
+    getContentText(content, ["description", "body", "subheading"]) ??
+    "Be a part of future of decentralized trust starts here. Join the TROY presale and become an early force behind a truly community-driven ecosystem.";
+
+  const cta = getContentObject<any>(content, ["cta", "primary_cta", "button"]);
+  const ctaLabel =
+    getContentText(cta, ["label", "text", "title"]) ??
+    getContentText(content, ["cta_label", "button_label"]) ??
+    "Troyvest Now";
+  const ctaHref =
+    getContentText(cta, ["href", "url", "link"]) ??
+    getContentText(content, ["cta_href", "cta_url", "button_href"]) ??
+    "https://presale.troyvest.io";
   return (
     <section id="Currency" className="relative overflow-hidden py-32">
       {/* Background Glow */}
@@ -15,17 +41,22 @@ const FinalCTASection = () => {
 
       <div className="container relative z-10 mx-auto px-6 text-center max-w-5xl">
         <h2 className="text-4xl md:text-6xl font-extrabold mb-8 leading-[1.2] tracking-tight">
-          Don’t Just Invest in Crypto.
-          <br />
-          <span className="bg-gradient-to-r from-[#fee372] via-white to-[#00C6FF] bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(255,214,10,0.7)]">
-            Troyvest in Accountability.
-          </span>
+          {headingFull ? (
+            headingFull
+          ) : (
+            <>
+              {headingPrimary}
+              <br />
+              <span className="bg-gradient-to-r from-[#fee372] via-white to-[#00C6FF] bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(255,214,10,0.7)]">
+                {headingHighlight}
+              </span>
+            </>
+          )}
         </h2>
         <p className="text-lg md:text-2xl text-white/70 max-w-3xl mx-auto mb-12 leading-relaxed">
-          Be a part of future of decentralized trust starts here. Join the TROY presale
-          and become an early force behind a truly community-driven ecosystem.
+          {description}
         </p>
-        <a href="https://presale.troyvest.io" target="_blank" rel="noopener noreferrer">
+        <a href={ctaHref} target="_blank" rel="noopener noreferrer">
         <Button
           variant="hero"
           size="lg"
@@ -35,7 +66,7 @@ const FinalCTASection = () => {
           hover:shadow-[0_0_70px_rgba(255,214,10,0.8)]
           transition-all duration-300"
         >
-          Troyvest Now
+          {ctaLabel}
           <ArrowRight className="w-6 h-6 ml-2" />
         </Button>
         </a>

@@ -6,10 +6,114 @@ import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Progress } from "@/components/ui/progress";
 import { CreditCard } from "lucide-react";
+import {
+  getContentArray,
+  getContentNumber,
+  getContentObject,
+  getContentText,
+} from "@/lib/landing";
 
-export default function PresaleSection() {
+type PresaleSectionProps = {
+  content?: any;
+};
+
+export default function PresaleSection({ content }: PresaleSectionProps) {
   const [amount, setAmount] = useState("");
-  const troyAmount = amount ? (parseFloat(amount) / 0.008).toFixed(2) : "0";
+
+  const headingFull = getContentText(content, ["heading", "title"]);
+  const headingPrefix =
+    getContentText(content, ["heading_prefix", "title_prefix"]) ?? "The";
+  const headingHighlight =
+    getContentText(content, ["heading_highlight", "title_highlight", "highlight"]) ??
+    "TROY Presale";
+  const headingSuffix =
+    getContentText(content, ["heading_suffix", "title_suffix"]) ?? "is Live";
+
+  const subheadingHtml = getContentText(content, [
+    "subheading_html",
+    "description_html",
+  ]);
+  const subheadingText = getContentText(content, [
+    "subheading",
+    "description",
+    "body",
+  ]);
+
+  const priceLabel =
+    getContentText(content, ["price_label", "price_label_text"]) ??
+    "Price per Token";
+  const priceValue =
+    getContentText(content, ["price_per_token", "price", "token_price"]) ??
+    "$0.00080";
+
+  const stakingLabel =
+    getContentText(content, ["staking_label", "reward_label"]) ??
+    "Staking Reward (60 days)";
+  const stakingValue =
+    getContentText(content, ["staking_reward", "reward", "apy"]) ??
+    "15% ROI APY";
+
+  const progressPercentRaw =
+    getContentNumber(content, ["progress_percent", "progress", "progress_pct"]) ??
+    65;
+  const progressPercent = Math.min(100, Math.max(0, progressPercentRaw));
+  const progressLabel =
+    getContentText(content, ["progress_label"]) ??
+    `${progressPercent}% Sold`;
+
+  const paymentTokens =
+    getContentArray<string>(content, [
+      "payment_tokens",
+      "tokens",
+      "accepted_tokens",
+    ]) ?? ["BNB", "USDT", "USDC"];
+
+  const primaryCta = getContentObject<any>(content, [
+    "primary_cta",
+    "cta_primary",
+    "cta",
+  ]);
+  const secondaryCta = getContentObject<any>(content, [
+    "secondary_cta",
+    "cta_secondary",
+  ]);
+
+  const primaryLabel =
+    getContentText(primaryCta, ["label", "text", "title"]) ??
+    getContentText(content, ["primary_cta_label", "cta_label"]) ??
+    "Troyvest Now";
+  const primaryHref =
+    getContentText(primaryCta, ["href", "url", "link"]) ??
+    getContentText(content, ["primary_cta_href", "cta_href", "cta_url"]) ??
+    "https://presale.troyvest.io";
+
+  const secondaryLabel =
+    getContentText(secondaryCta, ["label", "text", "title"]) ??
+    getContentText(content, ["secondary_cta_label"]) ??
+    "Buy Crypto with Card";
+  const secondaryHref =
+    getContentText(secondaryCta, ["href", "url", "link"]) ??
+    getContentText(content, ["secondary_cta_href", "secondary_cta_url"]) ??
+    "https://presale.troyvest.io";
+
+  const priceForCalc = (() => {
+    const parsed =
+      getContentNumber(content, [
+        "price_per_token_value",
+        "price_value",
+        "price_value_usd",
+      ]) ??
+      Number(
+        (priceValue || "")
+          .replace(/[^\d.]/g, "")
+          .trim()
+      );
+    if (Number.isFinite(parsed) && parsed > 0) return parsed;
+    return 0.008;
+  })();
+  const troyAmount = amount
+    ? (parseFloat(amount) / priceForCalc).toFixed(2)
+    : "0";
 
   return (
     <section id="presale" className="py-28 relative">
@@ -19,22 +123,41 @@ export default function PresaleSection() {
 
       <div className="container mx-auto px-6 relative">
         <div className="text-center mb-14">
-          <h2 className="text-5xl md:text-6xl font-extrabold leading-tight">
-            The{" "}
-            <span className="bg-gradient-to-r from-[#fee372] to-[#fee372] bg-clip-text text-transparent">
-              TROY Presale
-            </span>{" "}
-            is Live
-          </h2>
-          <p className="text-lg text-gray-300 mt-3">
-            
-            Don't Just Invest ! <span className="text-1xl font-extrabold text-[#ffea9a]
+          {headingFull ? (
+            <h2 className="text-5xl md:text-6xl font-extrabold leading-tight">
+              {headingFull}
+            </h2>
+          ) : (
+            <h2 className="text-5xl md:text-6xl font-extrabold leading-tight">
+              {headingPrefix}{" "}
+              <span className="bg-gradient-to-r from-[#fee372] to-[#fee372] bg-clip-text text-transparent">
+                {headingHighlight}
+              </span>{" "}
+              {headingSuffix}
+            </h2>
+          )}
+          {subheadingHtml ? (
+            <p
+              className="text-lg text-gray-300 mt-3"
+              dangerouslySetInnerHTML={{ __html: subheadingHtml }}
+            />
+          ) : subheadingText ? (
+            <p className="text-lg text-gray-300 mt-3">{subheadingText}</p>
+          ) : (
+            <p className="text-lg text-gray-300 mt-3">
+              Don't Just Invest !{" "}
+              <span
+                className="text-1xl font-extrabold text-[#ffea9a]
         drop-shadow-[0_0_8px_#ffdd77]
         drop-shadow-[0_0_15px_#ffcc55]
-        drop-shadow-[0_0_25px_#ffba33]">
-              Troyvest
-            </span>.<br/>Future of finance is here!
-          </p>
+        drop-shadow-[0_0_25px_#ffba33]"
+              >
+                Troyvest
+              </span>
+              .<br />
+              Future of finance is here!
+            </p>
+          )}
         </div>
 
         <Card className="max-w-4xl mx-auto p-10 border border-yellow-500/30 bg-black/40 backdrop-blur-xl shadow-[0_0_25px_rgba(255,200,0,0.15)] rounded-2xl">
@@ -55,18 +178,16 @@ export default function PresaleSection() {
             <TabsContent value="stage1" className="space-y-8">
               <div className="grid md:grid-cols-2 gap-10">
                 <div>
-                  <p className="text-sm text-gray-400">Price per Token</p>
+                  <p className="text-sm text-gray-400">{priceLabel}</p>
                   <p className="text-4xl font-bold bg-gradient-to-r from-[#fee372] to-[#fee372] text-transparent bg-clip-text mt-1">
-                    $0.00080
+                    {priceValue}
                   </p>
                 </div>
 
                 <div>
-                  <p className="text-sm text-gray-400">
-                    Staking Reward (60 days)
-                  </p>
+                  <p className="text-sm text-gray-400">{stakingLabel}</p>
                   <p className="text-4xl font-bold bg-gradient-to-r from-[#fee372] to-[#fee372] text-transparent bg-clip-text mt-1">
-                    15% ROI APY
+                    {stakingValue}
                   </p>
                 </div>
               </div>
@@ -75,10 +196,12 @@ export default function PresaleSection() {
               <div>
                 <div className="flex justify-between text-sm">
                   <span className="text-gray-400">Progress</span>
-                  <span className="text-[#fee372] font-semibold">65% Sold</span>
+                  <span className="text-[#fee372] font-semibold">
+                    {progressLabel}
+                  </span>
                 </div>
                 <Progress
-                  value={65}
+                  value={progressPercent}
                   className="h-3 mt-1 bg-white/10 [&>div]:bg-gradient-to-r [&>div]:from-[#fee372] [&>div]:to-[#fee372]"
                 />
               </div>
@@ -87,7 +210,7 @@ export default function PresaleSection() {
               <div className="space-y-6 p-7 rounded-xl bg-white/5 border border-yellow-500/20 backdrop-blur-sm">
                 {/* Token options */}
                 <div className="flex gap-3">
-                  {["BNB", "USDT", "USDC"].map((t) => (
+                  {paymentTokens.map((t) => (
                     <Button
                       key={t}
                       variant="outline"
@@ -122,19 +245,19 @@ export default function PresaleSection() {
                     </p>
                   </div>
                 </div>
-                  <a href="https://presale.troyvest.io" className="block my-3" target="_blank" rel="noopener noreferrer">
+                  <a href={primaryHref} className="block my-3" target="_blank" rel="noopener noreferrer">
                 <Button className="w-full py-6 text-lg text-black font-semibold bg-gradient-to-r from-[#fee372] via-[#fee372] to-[#fee372] hover:shadow-[0_0_25px_rgba(255,199,0,0.45)]">
-                  Troyvest Now
+                  {primaryLabel}
                 </Button>
                 </a>
-                <a href="https://presale.troyvest.io" className="block my-3" target="_blank" rel="noopener noreferrer">
+                <a href={secondaryHref} className="block my-3" target="_blank" rel="noopener noreferrer">
                 <Button
                   variant="ghost"
                   size="sm"
                   className="w-full text-sm text-gray-300 hover:text-black"
                 >
                   <CreditCard className="w-4 h-4" />
-                  Buy Crypto with Card
+                  {secondaryLabel}
                 </Button>
                 </a>
               </div>

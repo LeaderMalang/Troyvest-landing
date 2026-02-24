@@ -25,8 +25,8 @@ export default function Navigation() {
           <div className="flex items-center space-x-2 w-[120px] h-[100px]">
 
             <img
-              src="/troyvest-logo.png"
-              alt="Logo"
+              src="/vendex.jpg"
+              alt="Vendex logo"
               className="object-contain"
             />
 

@@ -10,7 +10,7 @@ type SEOProps = {
 };
 
 const SITE_URL = "https://troyvest.io";
-const DEFAULT_IMAGE = "/troyvest-logo.png";
+const DEFAULT_IMAGE = "/vendex.jpg";
 const SITE_NAME = "TroyVest";
 
 export function SEO({
