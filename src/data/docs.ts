@@ -27,21 +27,21 @@ export const docs = [
     title: "Vindex (VNDX) — Governance Token Whitepaper (v1.0)",
     subtitle: "Governance token purpose, treasury control, and DAO voting.",
     file:
-      "/docs/MIDAS (MDS) — Governance Token Whitepaper (v1.0).pdf",
+      "/docs/Vindex (VNDX) — Governance Token Whitepaper (v1.0).pdf",
     tag: "Governance"
   },
   {
     id: "mds-tokenomics",
-    title: "MIDAS (MDS) — Tokenomics (v1.0)",
+    title: "Vindex (VNDX) — Tokenomics (v1.0)",
     subtitle: "Supply model, governance weight, and staking incentives.",
-    file: "/docs/MIDAS (MDS) — Tokenomics (v1.0).pdf",
+    file: "/docs/Vindex (VNDX) — Tokenomics (v1.0).pdf",
     tag: "Tokenomics"
   },
   {
     id: "mds-roadmap",
-    title: "MIDAS (MDS) — Roadmap (2025–2027)",
-    subtitle: "MDS governance, treasury activation & multichain DAO.",
-    file: "/docs/MIDAS (MDS) — Roadmap (2025–2027).pdf",
+    title: "Vindex (VNDX) — Roadmap (2025–2027)",
+    subtitle: "Vindex governance, treasury activation & multichain DAO.",
+    file: "/docs/Vindex (VNDX) — Roadmap (2025–2027).pdf",
     tag: "Roadmap"
   },
 
