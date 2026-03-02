@@ -7,55 +7,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- SEO Title -->
-    <title>
-      TroyVest TROY Token | TroyVest TROY & TroyVest DeFi Accountability with Decentralized Treasury
-    </title>
-
-    <!-- Primary Description -->
-    <meta
-      name="description"
-      content="TroyVest TROY Token powers the TroyVest TROY ecosystem with DeFi Accountability, a decentralized treasury, and community-driven governance. Join a new standard of transparent crypto with TroyVest DeFi Accountability."
-    />
-
-    <meta name="author" content="Troyvest" />
-
-    <!-- Keywords using your phrases -->
-    <meta
-      name="keywords"
-      content="TroyVest TROY Token, TroyVest TROY, TroyVest DeFi Accountability, DeFi, cryptocurrency, Vindex DAO, decentralized treasury, crypto presale, blockchain, governance token"
-    />
-
-    <!-- Open Graph / Social -->
-    <meta
-      property="og:title"
-      content="TroyVest TROY | DeFi Accountability with a Decentralized Treasury"
-    />
-    <meta
-      property="og:description"
-      content="Discover TroyVest TROY Token and the TroyVest DeFi Accountability model: a decentralized treasury, transparent governance, and community-powered TROYVest TROY ecosystem."
-    />
-    <meta property="og:type" content="website" />
-    <meta
-      property="og:image"
-      content="/troyvest-logo.png"
-    />
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@Troyvest_Ofc" />
-    <meta
-      name="twitter:title"
-      content="TroyVest TROY Token | TroyVest DeFi Accountability"
-    />
-    <meta
-      name="twitter:description"
-      content="TroyVest TROY brings real DeFi Accountability with a decentralized treasury and on-chain governance. Explore the TroyVest TROY Token and ecosystem."
-    />
-    <meta
-      name="twitter:image"
-      content="/troyvest-logo.png"
-    />
+    <!-- SSR/CSR head injection from react-helmet-async -->
+    <!--app-head-->
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-WJRD2E1C2P"></script>
     <script>
@@ -68,7 +21,7 @@
   </head>
 
   <body>
-    <div id="root"></div>
+    <div id="root"><!--app-html--></div>
     <script type="module" src="/src/entry-client.tsx"></script>
   </body>
 </html>
