@@ -107,7 +107,7 @@ const TokenEcosystemSection = ({ content }: TokenEcosystemSectionProps) => {
     name: "Vindex (VNDX)",
     tagline: "The Key",
     supply_label: "Total Supply",
-    supply: "888,888 MDS",
+    supply: "888,888 VNDX",
     icon_image: "vendex.png",
     icon_alt: "Vindex token",
     features: [

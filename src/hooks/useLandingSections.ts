@@ -9,6 +9,12 @@ export function useLandingSections() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    // Only fetch on client side to prevent SSR hydration mismatch
+    if (typeof window === "undefined") {
+      setLoading(false);
+      return;
+    }
+
     const controller = new AbortController();
     setLoading(true);
     setError(null);

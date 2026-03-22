@@ -10,6 +10,7 @@ import FinalCTASection from "@/components/FinalCTASection";
 import Footer from "@/components/Footer";
 import Background3D from "@/components/Background3D";
 import { SEO } from "@/components/SEO";
+import { ClientOnly } from "@/components/ClientOnly";
 import { useLandingSections } from "@/hooks/useLandingSections";
 
 const Index = () => {
@@ -109,7 +110,9 @@ const Index = () => {
         <SecuritySection content={sectionFor("security", "trust")?.content} />
         <FinalCTASection content={sectionFor("final-cta", "cta")?.content} />
       </main>
-      <Footer />
+      <ClientOnly>
+        <Footer />
+      </ClientOnly>
     </div>
   );
 };
