@@ -1,11 +1,11 @@
 FROM node:20-alpine AS builder
 WORKDIR /app
 
-COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile
+COPY package.json package-lock.json ./
+RUN npm ci
 
 COPY . .
-RUN yarn build:ssr
+RUN npm run build:ssr
 
 
 FROM node:20-alpine AS runner
@@ -14,8 +14,8 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV PORT=4177
 
-COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile --production=true
+COPY package.json package-lock.json ./
+RUN npm ci --omit=dev
 
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/server ./server

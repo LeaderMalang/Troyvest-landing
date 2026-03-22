@@ -42,6 +42,7 @@ const Footer = () => {
   const footerLinks = [
     { label: "Whitepaper", link: "/documents?doc=troy-whitepaper" },
     { label: "FAQ", link: "/faq" },
+    { label: "DAO", link: "/dao" },
     { label: "Terms of Service", link: "/terms" },
     { label: "Contact", link: "/contact" },
     { label: "Community", link: "https://t.me/troyvest" },
