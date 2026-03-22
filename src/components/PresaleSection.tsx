@@ -27,7 +27,7 @@ export default function PresaleSection({ content }: PresaleSectionProps) {
     getContentText(content, ["heading_highlight", "title_highlight", "highlight"]) ??
     "TROY Presale";
   const headingSuffix =
-    getContentText(content, ["heading_suffix", "title_suffix"]) ?? "is Live";
+    getContentText(content, ["heading_suffix", "title_suffix"]) ?? "is Expired";
 
   const subheadingHtml = getContentText(content, [
     "subheading_html",
@@ -55,11 +55,11 @@ export default function PresaleSection({ content }: PresaleSectionProps) {
 
   const progressPercentRaw =
     getContentNumber(content, ["progress_percent", "progress", "progress_pct"]) ??
-    65;
+    100;
   const progressPercent = Math.min(100, Math.max(0, progressPercentRaw));
   const progressLabel =
     getContentText(content, ["progress_label"]) ??
-    `${progressPercent}% Sold`;
+    `Target Met - 100% Sold`;
 
   const paymentTokens =
     getContentArray<string>(content, [
@@ -207,59 +207,20 @@ export default function PresaleSection({ content }: PresaleSectionProps) {
               </div>
 
               {/* Buy box */}
-              <div className="space-y-6 p-7 rounded-xl bg-white/5 border border-yellow-500/20 backdrop-blur-sm">
-                {/* Token options */}
-                <div className="flex gap-3">
-                  {paymentTokens.map((t) => (
-                    <Button
-                      key={t}
-                      variant="outline"
-                      size="sm"
-                      className="font-medium border-yellow-400/40 hover:bg-yellow-400/15 text-[#fee372]"
-                    >
-                      {t}
-                    </Button>
-                  ))}
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-sm text-gray-400">
-                    Amount You Pay (BNB)
-                  </label>
-                  <Input
-                    type="number"
-                    placeholder="0.0"
-                    value={amount}
-                    onChange={(e) => setAmount(e.target.value)}
-                    className="text-lg bg-black/40 border-yellow-500/20 focus:border-[#fee372]"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-sm text-gray-400">
-                    You Receive (TROY)
-                  </label>
-                  <div className="p-4 rounded-lg bg-black/60 border border-yellow-500/20">
-                    <p className="text-xl font-semibold text-[#fee372]">
-                      {troyAmount} TROY
+              <div className="space-y-6 p-7 rounded-xl bg-red-500/10 border border-red-500/40 backdrop-blur-sm">
+                <div className="text-center space-y-3">
+                  <div className="inline-block px-4 py-2 rounded-full bg-red-500/20 border border-red-500/40">
+                    <p className="text-red-400 font-semibold text-sm">
+                      ⏱️ Presale Expired
                     </p>
                   </div>
+                  <p className="text-xl font-bold text-white">
+                    Presale Successfully Completed!
+                  </p>
+                  <p className="text-gray-300 text-sm">
+                    Target reached and presale period has ended. Thank you for your participation!
+                  </p>
                 </div>
-                  <a href={primaryHref} className="block my-3" target="_blank" rel="noopener noreferrer">
-                <Button className="w-full py-6 text-lg text-black font-semibold bg-gradient-to-r from-[#fee372] via-[#fee372] to-[#fee372] hover:shadow-[0_0_25px_rgba(255,199,0,0.45)]">
-                  {primaryLabel}
-                </Button>
-                </a>
-                <a href={secondaryHref} className="block my-3" target="_blank" rel="noopener noreferrer">
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="w-full text-sm text-gray-300 hover:text-black"
-                >
-                  <CreditCard className="w-4 h-4" />
-                  {secondaryLabel}
-                </Button>
-                </a>
               </div>
             </TabsContent>
           </Tabs>
