@@ -15,7 +15,7 @@ type ProposalCreatedLogArgs = {
   description: string;
 };
 
-const CHUNK_SIZE = 25_000;
+const CHUNK_SIZE = 4_999;
 
 const normalizeProposal = (args: ProposalCreatedLogArgs, blockNumber: number, transactionHash: string) => {
   if (args.targets.length !== 1 || args.values.length !== 1 || args.calldatas.length !== 1) {
